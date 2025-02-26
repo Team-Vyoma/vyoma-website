@@ -6,20 +6,23 @@ import { teamMembers } from "../lib/team";
 
 <Layout>
     <section class="min-h-screen text-center team m-4 p-4 mt-16">
-		<h1 class="pt-24 text-5xl text-vyoma-blue">Team</h1>
-		<p></p>
+        <h1 class="pt-24 text-5xl text-vyoma-blue">Team</h1>
+        <p></p>
 
-		{
-			teamMembers.map((member) => (
-				<TeamMember
-					name={member.name}
-					src={member.src}
-					title={member.title}
-					twitter={member.twitter}
-					instagram={member.instagram}
-					linkedin={member.linkedin}
-				/>
-			))
-		}
-	</section>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            {
+                teamMembers.map((member) => (
+                    <TeamMember
+                        name={member.name}
+                        src={member.src}
+                        title={member.title}
+                        twitter={member.twitter}
+                        instagram={member.instagram}
+                        linkedin={member.linkedin}
+                        loading="lazy"
+                    />
+                ))
+            }
+        </div>
+    </section>
 </Layout>
