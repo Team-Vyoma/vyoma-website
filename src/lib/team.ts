@@ -48,7 +48,7 @@ export const teamMembers = [
   },
   {
     name: "Prajwal N",
-    src: "/images/team/unknown.jpg",
+    src: "public/images/team/Prajwal.jpeg",
     title: "Research & Development Head",
     twitter: null,
     instagram: null,
