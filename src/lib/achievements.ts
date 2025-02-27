@@ -47,4 +47,10 @@ export const achievements = [
     description:
       "Honored with the Best Performer award at the Jain University National Aero Modelling Competition, showcasing exceptional skill and innovation.",
   },
+  {
+    src: "/images/iitbombay.png",
+    heading: "IIT Bombay Techfest National Aeromodelling Competition",
+    description:
+      "Two teams secured positions in the top 25 among 300+ competing teams. The mechanisms were made for carrying and precisely dropping balls.",
+  },
 ];
