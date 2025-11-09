@@ -87,7 +87,6 @@
   top: 0;
   left: 0;
   z-index: 100;
-  position: fixed;
 }
 
 .header .logo img {
@@ -129,7 +128,7 @@
 }
 
 .home {
-  background-image: url(../images/img1.jpg);
+  background-image: url(/images/img1.jpg);
   background-size: cover;
   background-position: bottom;
 }
@@ -139,7 +138,7 @@
   bottom: 0rem;
   left: 0;
   width: 100%;
-  background: url(../images/darkwave2.png);
+  background: url(/images/darkwave2.png);
   background-size: 100rem 11rem;
   animation: waves 8s linear infinite;
   background-repeat: repeat-x;
@@ -274,7 +273,7 @@
 }
 
 .counters {
-  background-image: url(../images/img2.jpg);
+  background-image: url(/images/img2.jpg);
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -333,7 +332,7 @@
   margin-bottom: 30px;
   border: 1px solid rgba(0, 0, 0, 0.07);
   -webkit-transition: all 0.7s ease 0s;
-  transition: all 0.7 ease 0s;
+  transition: all 0.7s ease 0s;
 }
 
 .item:hover {
@@ -922,6 +921,7 @@
   }
 
   .contact-form-txt {
+    margin-left: 2rem;
     width: 90%;
     height: 20px;
     color: #000;
@@ -1016,6 +1016,133 @@
   animation: fadeIn 1.5s ease-out;
   animation-delay: 1.5s;
   animation-fill-mode: forwards;
+}
+
+/* Additional mobile fixes for screens smaller than 768px */
+@media (max-width: 768px) {
+  .header .logo img {
+    height: 4rem;
+  }
+
+  .header {
+    padding: 0.5rem 1rem;
+  }
+
+  .heading,
+  .section-head h1,
+  .section-head-1 h4 {
+    font-size: 1.5rem;
+    padding-top: 4rem;
+  }
+
+  .heading::before,
+  .section-head h1::before,
+  .section-head-1 h4::before {
+    top: 3.5rem;
+    left: -1rem;
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .heading::after,
+  .section-head h1::after,
+  .section-head-1 h4::after {
+    height: 2rem;
+    width: 2rem;
+    right: -1rem;
+  }
+
+  .about .row {
+    padding: 0 1rem;
+  }
+
+  .contact-in {
+    width: 95%;
+    padding: 5px;
+  }
+
+  .contact-form-txt,
+  .contact-form-email,
+  .contact-form-phone {
+    margin-left: 1rem;
+    width: 85%;
+  }
+
+  .contact-form-txtarea {
+    margin-left: 1rem;
+    width: 85%;
+    height: 100px;
+  }
+
+  .contact-form-btn {
+    margin-left: 1rem;
+    width: 10rem;
+    height: 3rem;
+    font-size: 0.9rem;
+  }
+
+  .team .row .card {
+    width: 100%;
+    margin: 1rem auto;
+  }
+
+  .wave {
+    background-size: 50rem 8rem;
+  }
+
+  @keyframes waves {
+    0% {
+      background-position-x: 0;
+    }
+    100% {
+      background-position-x: 50rem;
+    }
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .heading,
+  .section-head h1,
+  .section-head-1 h4 {
+    font-size: 1.25rem;
+    padding-top: 3rem;
+    letter-spacing: 0.1rem;
+  }
+
+  .header .logo img {
+    height: 3.5rem;
+  }
+
+  .about .row .content h3 {
+    font-size: 1.5rem;
+  }
+
+  .about .row .content p {
+    font-size: 0.875rem;
+  }
+
+  .contact-form-txt,
+  .contact-form-email,
+  .contact-form-phone {
+    margin-left: 0.5rem;
+    width: 90%;
+  }
+
+  .contact-form-txtarea {
+    margin-left: 0.5rem;
+    width: 90%;
+  }
+
+  .contact-form-btn {
+    margin-left: 0.5rem;
+    width: 9rem;
+  }
+
+  .row .btn {
+    width: 12rem;
+    font-size: 0.9rem;
+  }
 }
 
 @keyframes fadeIn {

@@ -1,35 +1,148 @@
 ---
-const { name, src, title, twitter, instagram, linkedin } = Astro.props;
+const { name, src, title, linkedin } = Astro.props;
 ---
 
-<div class="row inline-block flex-row items-center justify-center">
-    <div class="card h-[22rem] w-60 text-center bg-neutral-700 m-12 shadow-lg duration-150 overflow-hidden">
-        <div class="image flex flex-row justify-center">
-            <img
-                src={src}
-                alt={name}
-            />
-        </div>
-        <div class="flex flex-col gap-4">
-            <h3 class="text-2xl text-white">{name}</h3>
-            <span class="text-base text-neutral-200">{title}</span>
-            <div class="flex transition gap-5 justify-center text-base text-white ">
-                { twitter && (
-                    <a
-                        href={twitter}
-                        class="transition hover:text-sky-600 no-underline fab fa-twitter"></a>
-                )}
-                { instagram && (
-                    <a
-                        href={instagram}
-                        class="transition hover:text-sky-600 no-underline fab fa-instagram"></a>
-                )}
-                { linkedin && (
-                    <a
-                        href={linkedin}
-                        class="transition hover:text-sky-600 no-underline fab fa-linkedin"></a>
-                )}
-            </div>
+<div class="team-member-card">
+    <div class="image-container">
+        <img
+            src={src}
+            alt={name}
+            class="member-image"
+            loading="lazy"
+        />
+    </div>
+    <div class="member-info">
+        <h3 class="member-name">{name}</h3>
+        <span class="member-role">{title}</span>
+        <div class="member-social">
+            { linkedin ? (
+                <a
+                    href={linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="linkedin-link"
+                    aria-label={`${name}'s LinkedIn profile`}
+                >
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            ) : (
+                <div class="no-linkedin">
+                    <i class="fab fa-linkedin opacity-30"></i>
+                </div>
+            )}
         </div>
     </div>
 </div>
+
+<style>
+    .team-member-card {
+        background: #2d2d2d;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .team-member-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 16px rgba(48, 197, 220, 0.3);
+    }
+
+    .image-container {
+        width: 100%;
+        aspect-ratio: 1;
+        overflow: hidden;
+        background: #1a1a1a;
+    }
+
+    .member-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .team-member-card:hover .member-image {
+        transform: scale(1.05);
+    }
+
+    .member-info {
+        padding: 1.5rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        flex-grow: 1;
+    }
+
+    .member-name {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin: 0;
+        line-height: 1.3;
+    }
+
+    .member-role {
+        font-size: 0.95rem;
+        color: #30c5dc;
+        font-weight: 500;
+    }
+
+    .member-social {
+        margin-top: auto;
+        padding-top: 0.75rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .linkedin-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: #0077b5;
+        border-radius: 50%;
+        color: white;
+        font-size: 1.25rem;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+    .linkedin-link:hover {
+        background: #005885;
+        transform: scale(1.1);
+        box-shadow: 0 4px 12px rgba(0, 119, 181, 0.4);
+    }
+
+    .no-linkedin {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: #3a3a3a;
+        border-radius: 50%;
+        color: white;
+        font-size: 1.25rem;
+    }
+
+    @media (max-width: 768px) {
+        .member-name {
+            font-size: 1.125rem;
+        }
+
+        .member-role {
+            font-size: 0.875rem;
+        }
+
+        .member-info {
+            padding: 1rem;
+        }
+    }
+</style>

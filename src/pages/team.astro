@@ -2,27 +2,191 @@
 import TeamMember from "../components/TeamMember.astro";
 import Layout from "../layouts/Layout.astro";
 import { teamMembers } from "../lib/team";
+
+// Organize members by department
+const leaders = teamMembers.filter(m => m.department === "Leadership");
+const technical = teamMembers.filter(m => m.department === "Technical");
+const nonTechnical = teamMembers.filter(m => m.department === "Non-Technical");
 ---
 
 <Layout>
-    <section class="min-h-screen text-center team m-4 p-4 mt-16">
-        <h1 class="pt-24 text-5xl text-vyoma-blue">Team</h1>
-        <p></p>
+    <section class="min-h-screen text-center team-section">
+        <div class="container mx-auto px-4 py-8 mt-16">
+            <h1 class="page-title">Our Team</h1>
+            <p class="page-description">
+                Meet the dedicated individuals behind Team Vyoma who work to foster innovation and excellence in aerospace engineering.
+            </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-            {
-                teamMembers.map((member) => (
-                    <TeamMember
-                        name={member.name}
-                        src={member.src}
-                        title={member.title}
-                        twitter={member.twitter}
-                        instagram={member.instagram}
-                        linkedin={member.linkedin}
-                        loading="lazy"
-                    />
-                ))
-            }
+            <!-- Team Leads -->
+            <div class="team-category">
+                <h2 class="category-title">Team Leads</h2>
+                <div class="team-grid leaders-grid">
+                    {leaders.map((member) => (
+                        <TeamMember
+                            name={member.name}
+                            src={member.src}
+                            title={member.title}
+                            linkedin={member.linkedin}
+                        />
+                    ))}
+                </div>
+            </div>
+
+            <!-- Technical Division -->
+            <div class="team-category">
+                <h2 class="category-title">Technical Division</h2>
+                <div class="team-grid">
+                    {technical.map((member) => (
+                        <TeamMember
+                            name={member.name}
+                            src={member.src}
+                            title={member.title}
+                            linkedin={member.linkedin}
+                        />
+                    ))}
+                </div>
+            </div>
+
+            <!-- Non-Technical Division -->
+            <div class="team-category">
+                <h2 class="category-title">Non-Technical Division</h2>
+                <div class="team-grid">
+                    {nonTechnical.map((member) => (
+                        <TeamMember
+                            name={member.name}
+                            src={member.src}
+                            title={member.title}
+                            linkedin={member.linkedin}
+                        />
+                    ))}
+                </div>
+            </div>
         </div>
     </section>
 </Layout>
+
+<style>
+    .team-section {
+        background: #1a1a1a;
+        padding-bottom: 4rem;
+    }
+
+    .container {
+        max-width: 1400px;
+    }
+
+    .page-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: #30c5dc;
+        margin-bottom: 1rem;
+        padding-top: 6rem;
+    }
+
+    .page-description {
+        font-size: 1.125rem;
+        color: #b0b0b0;
+        max-width: 700px;
+        margin: 0 auto 4rem;
+        line-height: 1.6;
+    }
+
+    .team-category {
+        margin-bottom: 4rem;
+    }
+
+    .category-title {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #30c5dc;
+        margin-bottom: 2.5rem;
+        position: relative;
+        display: inline-block;
+    }
+
+    .category-title::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, #30c5dc, transparent);
+    }
+
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 2rem;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .leaders-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 300px));
+        justify-content: center;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+        .team-grid {
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .page-title {
+            font-size: 2.5rem;
+            padding-top: 4rem;
+        }
+
+        .page-description {
+            font-size: 1rem;
+            margin-bottom: 3rem;
+            padding: 0 1rem;
+        }
+
+        .category-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .team-grid {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .leaders-grid {
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+    }
+
+    @media (max-width: 480px) {
+        .page-title {
+            font-size: 2rem;
+            padding-top: 3rem;
+        }
+
+        .page-description {
+            font-size: 0.95rem;
+        }
+
+        .category-title {
+            font-size: 1.75rem;
+        }
+
+        .team-grid,
+        .leaders-grid {
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .team-category {
+            margin-bottom: 3rem;
+        }
+    }
+</style>
