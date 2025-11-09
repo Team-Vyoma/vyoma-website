@@ -1,9 +1,4 @@
-export interface GalleryImage {
-  src: string;
-  desc: string;
-  category: string;
-  title: string;
-}
+import type { GalleryImage, GalleryCategory } from '../types/gallery';
 
 export const galleryImages: GalleryImage[] = [
   {
@@ -111,15 +106,15 @@ export const galleryImages: GalleryImage[] = [
   {
     src: "/gallery/18.png",
     title: "Team Photo",
-    desc: "Team Vyoma members at annual gathering",
+    desc: "Project Vyoma members at annual gathering",
     category: "Team Events",
   },
 ];
 
-export const categories = [
+export const categories: readonly GalleryCategory[] = [
   "All",
   "Aircraft",
   "Competitions",
   "Workshops",
   "Team Events",
-] as const;
+];

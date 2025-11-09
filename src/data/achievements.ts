@@ -1,4 +1,6 @@
-export const achievements = [
+import type { Achievement } from '../types/achievement';
+
+export const achievements: Achievement[] = [
   {
     src: "/images/boeing.png",
     heading: "BOEING Aeromodelling IITM",
@@ -15,7 +17,7 @@ export const achievements = [
     src: "/images/nacdec.png",
     heading: "NACDEC",
     description:
-      "All three teams from Team Vyoma stood in the top 10%. The objective was to design an aircraft capable of carrying and dropping a heavy payload",
+      "All three teams from Project Vyoma stood in the top 10%. The objective was to design an aircraft capable of carrying and dropping a heavy payload",
   },
   {
     src: "/images/guppy.png",

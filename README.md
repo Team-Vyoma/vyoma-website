@@ -1,12 +1,12 @@
-# Team Vyoma Official Website
+# Project Vyoma Official Website
 
 [![Built with Astro](https://astro.badg.es/v2/built-with-astro/tiny.svg)](https://astro.build)
 
-Official website for **Team Vyoma** - the Aeromodelling Club of RV College of Engineering, Bangalore. Team Vyoma is one of India's leading student aerospace design teams, with a rich history of competing in international competitions like SAE Aero Design and AIAA Design/Build/Fly.
+Official website for **Project Vyoma** - the Aeromodelling Club of RV College of Engineering, Bangalore. Project Vyoma is one of India's leading student aerospace design teams, with a rich history of competing in international competitions like SAE Aero Design and AIAA Design/Build/Fly.
 
-## 🏆 About Team Vyoma
+## 🏆 About Project Vyoma
 
-Founded in 2007, Team Vyoma specializes in:
+Founded in 2007, Project Vyoma specializes in:
 - Design and development of Unmanned Aerial Vehicles (UAVs)
 - Participating in international aerospace competitions
 - Research in autonomous flight systems and advanced aerodynamics
@@ -108,16 +108,16 @@ All commands are run from the root of the project:
 ## 📝 Making Changes
 
 ### Updating Team Members
-Edit `src/lib/team.ts` to add/update team member information including:
+Edit `src/data/team.ts` to add/update team member information including:
 - Name, role, department
 - Profile photo path
 - LinkedIn profile URL
 
 ### Adding Gallery Images
-Add images to `public/gallery/` and update `src/lib/gallery.ts`
+Add images to `public/gallery/` and update `src/data/gallery.ts`
 
 ### Updating Achievements
-Modify `src/lib/achievements.ts` to showcase new awards and competitions
+Modify `src/data/achievements.ts` to showcase new awards and competitions
 
 ## 🌐 Deployment
 
@@ -151,16 +151,16 @@ The contact form uses EmailJS. To configure:
 
 ## 📄 License
 
-Copyright © 2015 Team Vyoma. MIT License.
+Copyright © 2007 onwards Project Vyoma. MIT License.
 
 ## 🔗 Connect With Us
 
 - **Website:** [teamvyoma.com](https://teamvyoma.com)
 - **Email:** projectvyoma@rvce.edu.in
-- **LinkedIn:** [Team Vyoma](https://www.linkedin.com/company/team-vyoma)
+- **LinkedIn:** [Project Vyoma](https://www.linkedin.com/company/team-vyoma)
 - **Instagram:** [@teamvyoma](https://www.instagram.com/teamvyoma)
 - **Twitter:** [@projectvyoma](https://x.com/projectvyoma)
 
 ---
 
-Built with ❤️ by Team Vyoma | RV College of Engineering
+Built with ❤️ by Project Vyoma | RV College of Engineering

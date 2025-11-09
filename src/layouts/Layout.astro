@@ -1,6 +1,6 @@
 ---
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import Footer from "../components/common/Footer.astro";
+import Header from "../components/common/Header.astro";
 
 interface Props {
     title?: string;
@@ -10,8 +10,8 @@ interface Props {
 }
 
 const {
-    title = "Team Vyoma - Aeromodelling Team | RV College of Engineering",
-    description = "Team Vyoma is the premier aeromodelling and aerospace engineering team at RV College of Engineering, Bangalore. We design, build, and fly RC aircraft, competing at national and international levels since 2007.",
+    title = "Project Vyoma - Aeromodelling Team | RV College of Engineering",
+    description = "Project Vyoma is the premier aeromodelling and aerospace engineering team at RV College of Engineering, Bangalore. We design, build, and fly RC aircraft, competing at national and international levels since 2007.",
     image = "/images/image.png",
     article = false
 } = Astro.props;
@@ -23,7 +23,7 @@ const socialImage = new URL(image, Astro.site);
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Team Vyoma",
+    "name": "Project Vyoma",
     "alternateName": "Project Vyoma",
     "url": Astro.site,
     "logo": new URL("/images/image.png", Astro.site),
@@ -66,8 +66,8 @@ const structuredData = {
     <title>{title}</title>
     <meta name="title" content={title}>
     <meta name="description" content={description}>
-    <meta name="keywords" content="aeromodelling, RC aircraft, aerospace engineering, RVCE, Bangalore, unmanned aerial vehicles, UAV, drone, competition, SAE Aero Design, AIAA DBF, Team Vyoma">
-    <meta name="author" content="Team Vyoma">
+    <meta name="keywords" content="aeromodelling, RC aircraft, aerospace engineering, RVCE, Bangalore, unmanned aerial vehicles, UAV, drone, competition, SAE Aero Design, AIAA DBF, Project Vyoma">
+    <meta name="author" content="Project Vyoma">
     <meta name="robots" content="index, follow">
     
     <!-- Canonical URL -->
@@ -79,7 +79,7 @@ const structuredData = {
     <meta property="og:title" content={title}>
     <meta property="og:description" content={description}>
     <meta property="og:image" content={socialImage}>
-    <meta property="og:site_name" content="Team Vyoma">
+    <meta property="og:site_name" content="Project Vyoma">
     <meta property="og:locale" content="en_US">
     
     <!-- Twitter Card -->
@@ -142,7 +142,7 @@ const structuredData = {
     ></script>
     
     <!-- Custom Scripts -->
-    <script src="../lib/main.js"></script>
+    <script src="../scripts/main.js"></script>
     <script is:inline src="/lib/easing/easing.min.js"></script>
     
     <!-- Structured Data (JSON-LD) -->

@@ -1,4 +1,6 @@
-export const teamMembers = [
+import type { TeamMember } from '../types/team';
+
+export const teamMembers: TeamMember[] = [
   // Team Leads
   {
     name: "Likhith N",
