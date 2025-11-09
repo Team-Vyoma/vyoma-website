@@ -1,54 +1,166 @@
-# Astro Starter Kit: Basics
+# Team Vyoma Official Website
 
-```sh
-npm create astro@latest -- --template basics
-```
+[![Built with Astro](https://astro.badg.es/v2/built-with-astro/tiny.svg)](https://astro.build)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Official website for **Team Vyoma** - the Aeromodelling Club of RV College of Engineering, Bangalore. Team Vyoma is one of India's leading student aerospace design teams, with a rich history of competing in international competitions like SAE Aero Design and AIAA Design/Build/Fly.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🏆 About Team Vyoma
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+Founded in 2007, Team Vyoma specializes in:
+- Design and development of Unmanned Aerial Vehicles (UAVs)
+- Participating in international aerospace competitions
+- Research in autonomous flight systems and advanced aerodynamics
+- Inspiring the next generation of aerospace engineers
+
+**Notable Achievement:** NASA Systems Engineering Award at SAE Aero Design West (2013)
+
+## ✨ Features
+
+- **Responsive Design** - Fully optimized for desktop, tablet, and mobile devices
+- **Modern UI** - Built with Tailwind CSS and custom animations
+- **Fast Performance** - Static site generation with Astro
+- **SEO Optimized** - Automatic sitemap generation
+- **Contact Integration** - EmailJS integration for contact forms
 
 ## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
 
 ```text
 /
 ├── public/
-│   └── favicon.svg
+│   ├── css/              # Custom stylesheets and fonts
+│   ├── document/         # Downloadable PDFs (brochures, proposals)
+│   ├── gallery/          # Event and project images
+│   ├── images/           # Website assets and team photos
+│   └── lib/              # Third-party libraries (jQuery, easing)
 ├── src/
-│   ├── components/
-│   │   └── Card.astro
+│   ├── components/       # Reusable Astro components
+│   │   ├── Achievement.astro
+│   │   ├── Footer.astro
+│   │   ├── Header.astro
+│   │   ├── ProjectCard.astro
+│   │   └── TeamMember.astro
 │   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
+│   │   └── Layout.astro  # Main layout wrapper
+│   ├── lib/              # Data files and utilities
+│   │   ├── achievements.ts
+│   │   ├── gallery.ts
+│   │   ├── main.ts
+│   │   └── team.ts
+│   ├── pages/            # Route pages
+│   │   ├── about.astro
+│   │   ├── achievements.astro
+│   │   ├── gallery.astro
+│   │   ├── index.astro
+│   │   ├── sponsors.astro
+│   │   ├── team.astro
+│   │   └── projects/
+│   └── styles/
+│       └── style.css     # Global styles
+├── astro.config.mjs      # Astro configuration
+├── tailwind.config.mjs   # Tailwind CSS configuration
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🛠️ Tech Stack
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
+- **Framework:** [Astro](https://astro.build) 4.16+
+- **Styling:** [Tailwind CSS](https://tailwindcss.com) 3.4+
+- **Type Safety:** TypeScript
+- **Icons:** Font Awesome, Ionicons
+- **Email Service:** EmailJS
+- **CSS Framework:** Bootstrap 4 (for grid system)
+- **Animations:** Custom CSS animations with jQuery
 
 ## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
+All commands are run from the root of the project:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
 | `npm install`             | Installs dependencies                            |
 | `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run build`           | Build production site to `./dist/`               |
+| `npm run preview`         | Preview production build locally                 |
+| `npm run astro ...`       | Run Astro CLI commands                           |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## 🚀 Getting Started
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. **Clone the repository:**
+   ```bash
+   git clone <repository-url>
+   cd vyoma-website-1
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser:**
+   Navigate to `http://localhost:4321`
+
+## 📝 Making Changes
+
+### Updating Team Members
+Edit `src/lib/team.ts` to add/update team member information including:
+- Name, role, department
+- Profile photo path
+- LinkedIn profile URL
+
+### Adding Gallery Images
+Add images to `public/gallery/` and update `src/lib/gallery.ts`
+
+### Updating Achievements
+Modify `src/lib/achievements.ts` to showcase new awards and competitions
+
+## 🌐 Deployment
+
+The site builds to static HTML and can be deployed to:
+- **Vercel** (Recommended)
+- **Netlify**
+- **GitHub Pages**
+- **Cloudflare Pages**
+- Any static hosting service
+
+```bash
+npm run build
+```
+
+The production-ready site will be in the `dist/` directory.
+
+## 📧 Contact Form Setup
+
+The contact form uses EmailJS. To configure:
+1. Create an account at [EmailJS](https://www.emailjs.com/)
+2. Update the service and template IDs in `src/pages/index.astro`
+3. Update the public key in the EmailJS initialization
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+Copyright © 2015 Team Vyoma. MIT License.
+
+## 🔗 Connect With Us
+
+- **Website:** [teamvyoma.com](https://teamvyoma.com)
+- **Email:** projectvyoma@rvce.edu.in
+- **LinkedIn:** [Team Vyoma](https://www.linkedin.com/company/team-vyoma)
+- **Instagram:** [@teamvyoma](https://www.instagram.com/teamvyoma)
+- **Twitter:** [@projectvyoma](https://x.com/projectvyoma)
+
+---
+
+Built with ❤️ by Team Vyoma | RV College of Engineering
