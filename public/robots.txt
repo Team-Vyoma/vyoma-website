@@ -1,4 +1,9 @@
+# Allow all robots
 User-agent: *
 Allow: /
 
+# Sitemap location
 Sitemap: https://teamvyoma.in/sitemap-index.xml
+
+# Crawl delay (optional, helps prevent server overload)
+Crawl-delay: 1

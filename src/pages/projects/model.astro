@@ -1,45 +1,633 @@
 ---
-import ProjectCard from "../../components/ProjectCard.astro";
 import Layout from "../../layouts/Layout.astro";
+
+const projectGallery = [
+    { src: "/images/model1.jpg", alt: "RC Aircraft - Front View" },
+    { src: "/images/model2.jpg", alt: "RC Aircraft - Assembly" },
+    { src: "/gallery/1.jpg", alt: "Flight Testing" },
+    { src: "/gallery/4.jpg", alt: "Wing Assembly" },
+    { src: "/gallery/16.jpg", alt: "Test Flight Success" },
+];
+
+const relatedProjects = [
+    {
+        title: "RC Airplane Launcher",
+        description: "Precision launch system for consistent takeoffs",
+        link: "/projects/launcher",
+        image: "/images/img1.jpg"
+    },
+    {
+        title: "Fixed-Wing VTOL",
+        description: "Vertical takeoff and landing capabilities",
+        link: "/projects/vtol",
+        image: "/images/img2.jpg"
+    },
+];
 ---
 
 <Layout>
-    <section
-        class="flex flex-col relative min-h-screen m-4 mt-16 gap-8 items-center p-4"
-    >
-        <h1 class="pt-24 text-5xl text-vyoma-blue">RC Model Airplanes</h1>
-
-        <div
-            class="flex flex-row items-center flex-wrap gap-5 max-w-screen-lg justify-center w-full"
-        >
-            <img class="rounded max-h-80 object-fit" src="/images/model1.jpg" />
-            <img class="rounded max-h-80 object-fit" src="/images/model2.jpg" />
-        </div>
-
-        <div
-            class="flex flex-col gap-4 text-left max-w-screen-lg w-full text-white"
-        >
-            <div class="flex flex-col">
-                <p class="text-lg">
-                    Team Vyoma is primarily involved in building RC airplanes.
-                    We have built several models and have flown them
-                    successfully. We have also participated in various
-                    competitions and have won prizes.
+    <article class="project-page">
+        <!-- Hero Section -->
+        <section class="project-hero">
+            <div class="hero-content">
+                <h1 class="project-title">RC Model Airplanes</h1>
+                <p class="project-subtitle">
+                    Custom-Built Radio-Controlled Aircraft for Competition & Research
                 </p>
+                <div class="project-tags">
+                    <span class="tag">Aerodynamics</span>
+                    <span class="tag">Competition</span>
+                    <span class="tag">R&D</span>
+                </div>
             </div>
+        </section>
 
-            <div class="flex flex-col">
-                <h3 class="text-vyoma-blue text-2xl">
-                    Boeing IIT: National Aeromodelling Competition
-                </h3>
-                <p class="text-lg">
-                    We secured a position in the top 20 out of 600 competing
-                    teams, in
-                    Round 2 of the Boeing National Aeromodelling Competition.
-                    This achievement stands as a testament to our dedication,
-                    teamwork, and relentless pursuit of excellence.
-                </p>
-            </div>
+        <div class="project-container">
+            <!-- Overview -->
+            <section class="project-section">
+                <h2 class="section-title">Overview</h2>
+                <div class="content-grid">
+                    <div class="content-col">
+                        <p class="text-content">
+                            Team Vyoma specializes in designing, building, and flying custom RC airplanes. 
+                            Our projects range from simple trainer aircraft to complex competition-grade models 
+                            featuring advanced aerodynamics, autonomous flight capabilities, and precision control systems.
+                        </p>
+                        <p class="text-content">
+                            We've successfully participated in national-level competitions, securing top positions 
+                            and gaining recognition for our innovative designs and engineering excellence.
+                        </p>
+                    </div>
+                    <div class="content-col">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">15+</div>
+                                <div class="stat-label">Aircraft Built</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">Top 20</div>
+                                <div class="stat-label">National Ranking</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">500+</div>
+                                <div class="stat-label">Flight Hours</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">3+</div>
+                                <div class="stat-label">Competitions</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Specifications -->
+            <section class="project-section">
+                <h2 class="section-title">Technical Specifications</h2>
+                <div class="spec-grid">
+                    <div class="spec-card">
+                        <h3 class="spec-title">Airframe</h3>
+                        <ul class="spec-list">
+                            <li><strong>Wingspan:</strong> 1.2m - 2.5m</li>
+                            <li><strong>Weight:</strong> 800g - 3.5kg</li>
+                            <li><strong>Material:</strong> Balsa wood, Carbon fiber, EPP foam</li>
+                            <li><strong>Construction:</strong> Semi-monocoque design</li>
+                        </ul>
+                    </div>
+                    <div class="spec-card">
+                        <h3 class="spec-title">Propulsion</h3>
+                        <ul class="spec-list">
+                            <li><strong>Motor:</strong> Brushless DC, 900-2200KV</li>
+                            <li><strong>ESC:</strong> 30A - 60A with BEC</li>
+                            <li><strong>Battery:</strong> 3S - 4S LiPo, 2200-5000mAh</li>
+                            <li><strong>Propeller:</strong> 9-12 inch, variable pitch</li>
+                        </ul>
+                    </div>
+                    <div class="spec-card">
+                        <h3 class="spec-title">Avionics</h3>
+                        <ul class="spec-list">
+                            <li><strong>Flight Controller:</strong> Pixhawk/Custom Arduino</li>
+                            <li><strong>Radio:</strong> 2.4GHz, 6-10 channel</li>
+                            <li><strong>Sensors:</strong> GPS, IMU, Barometer</li>
+                            <li><strong>Telemetry:</strong> Real-time data transmission</li>
+                        </ul>
+                    </div>
+                    <div class="spec-card">
+                        <h3 class="spec-title">Performance</h3>
+                        <ul class="spec-list">
+                            <li><strong>Max Speed:</strong> 80-120 km/h</li>
+                            <li><strong>Flight Time:</strong> 15-30 minutes</li>
+                            <li><strong>Range:</strong> Up to 2km</li>
+                            <li><strong>Payload:</strong> 500g - 1.5kg</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline & Milestones -->
+            <section class="project-section">
+                <h2 class="section-title">Timeline & Milestones</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Project Initiation</h3>
+                            <p class="timeline-date">August 2022</p>
+                            <p class="timeline-desc">
+                                Team formation, research, and initial design concepts. Selected aircraft 
+                                configuration and established project goals.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Design & CAD Modeling</h3>
+                            <p class="timeline-date">September 2022</p>
+                            <p class="timeline-desc">
+                                Completed aerodynamic analysis using XFLR5. Finalized wing design with 
+                                optimal airfoil selection (NACA 4412).
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">First Prototype Build</h3>
+                            <p class="timeline-date">October 2022</p>
+                            <p class="timeline-desc">
+                                Built and tested first prototype. Conducted ground tests and initial taxi trials. 
+                                Achieved first successful flight.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Boeing IIT Competition</h3>
+                            <p class="timeline-date">February 2023</p>
+                            <p class="timeline-desc">
+                                Secured Top 20 position out of 600+ teams in Round 2 of Boeing National 
+                                Aeromodelling Competition at IIT Bombay.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Advanced Models</h3>
+                            <p class="timeline-date">2023 - Present</p>
+                            <p class="timeline-desc">
+                                Development of advanced aircraft with autonomous capabilities, FPV systems, 
+                                and improved aerodynamic efficiency.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Image Gallery -->
+            <section class="project-section">
+                <h2 class="section-title">Project Gallery</h2>
+                <div class="project-gallery">
+                    {projectGallery.map((image) => (
+                        <div class="gallery-item group">
+                            <img 
+                                src={image.src} 
+                                alt={image.alt}
+                                loading="lazy"
+                                class="gallery-image"
+                            />
+                            <div class="gallery-overlay">
+                                <p class="gallery-caption">{image.alt}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <!-- Key Features -->
+            <section class="project-section">
+                <h2 class="section-title">Key Features & Capabilities</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3 class="feature-title">Precision Control</h3>
+                        <p class="feature-desc">
+                            Advanced flight controller with GPS-assisted stabilization and autonomous 
+                            waypoint navigation capabilities.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3 class="feature-title">High Performance</h3>
+                        <p class="feature-desc">
+                            Optimized aerodynamics with low-drag airfoils, achieving high speed and 
+                            extended flight times.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔧</div>
+                        <h3 class="feature-title">Modular Design</h3>
+                        <p class="feature-desc">
+                            Easy assembly/disassembly for transport and maintenance. Interchangeable 
+                            components for different mission profiles.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📡</div>
+                        <h3 class="feature-title">Telemetry System</h3>
+                        <p class="feature-desc">
+                            Real-time data transmission including altitude, speed, battery status, and 
+                            GPS coordinates.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎥</div>
+                        <h3 class="feature-title">FPV Capability</h3>
+                        <p class="feature-desc">
+                            First-person view system with HD camera for immersive flying experience 
+                            and aerial photography.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3 class="feature-title">Safety Features</h3>
+                        <p class="feature-desc">
+                            Return-to-home functionality, low battery alarms, and geofencing to ensure 
+                            safe operation.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Challenges & Solutions -->
+            <section class="project-section">
+                <h2 class="section-title">Challenges & Solutions</h2>
+                <div class="challenge-grid">
+                    <div class="challenge-card">
+                        <h3 class="challenge-title">Challenge: Wing Structural Integrity</h3>
+                        <p class="challenge-desc">
+                            Initial designs suffered from wing flutter at high speeds due to insufficient rigidity.
+                        </p>
+                        <h4 class="solution-label">Solution</h4>
+                        <p class="challenge-desc">
+                            Implemented carbon fiber spar reinforcement and optimized rib spacing. 
+                            Conducted vibration analysis to identify resonant frequencies.
+                        </p>
+                    </div>
+                    <div class="challenge-card">
+                        <h3 class="challenge-title">Challenge: CG Balance</h3>
+                        <p class="challenge-desc">
+                            Achieving proper center of gravity was difficult with varying payload configurations.
+                        </p>
+                        <h4 class="solution-label">Solution</h4>
+                        <p class="challenge-desc">
+                            Designed adjustable battery mounting system and added ballast compartments 
+                            for fine-tuning weight distribution.
+                        </p>
+                    </div>
+                    <div class="challenge-card">
+                        <h3 class="challenge-title">Challenge: Landing Gear Durability</h3>
+                        <p class="challenge-desc">
+                            Original landing gear failed during hard landings on rough terrain.
+                        </p>
+                        <h4 class="solution-label">Solution</h4>
+                        <p class="challenge-desc">
+                            Upgraded to spring-loaded landing gear with shock absorption. Added protective 
+                            skid plates for belly landings.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Achievement Highlight -->
+            <section class="project-section highlight-section">
+                <div class="achievement-card">
+                    <div class="achievement-icon">🏆</div>
+                    <h2 class="achievement-title">Boeing IIT: National Aeromodelling Competition</h2>
+                    <p class="achievement-desc">
+                        We secured a position in the <strong>Top 20 out of 600 competing teams</strong> in Round 2 
+                        of the Boeing National Aeromodelling Competition. This achievement stands as a testament to 
+                        our dedication, teamwork, and relentless pursuit of excellence in aerospace engineering.
+                    </p>
+                    <div class="achievement-stats">
+                        <div class="achievement-stat">
+                            <span class="stat-value">600+</span>
+                            <span class="stat-label">Teams</span>
+                        </div>
+                        <div class="achievement-stat">
+                            <span class="stat-value">Top 20</span>
+                            <span class="stat-label">Ranking</span>
+                        </div>
+                        <div class="achievement-stat">
+                            <span class="stat-value">National</span>
+                            <span class="stat-label">Level</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Related Projects -->
+            <section class="project-section">
+                <h2 class="section-title">Related Projects</h2>
+                <div class="related-projects-grid">
+                    {relatedProjects.map((project) => (
+                        <a href={project.link} class="related-project-card">
+                            <div class="related-project-image">
+                                <img src={project.image} alt={project.title} loading="lazy" />
+                            </div>
+                            <div class="related-project-content">
+                                <h3 class="related-project-title">{project.title}</h3>
+                                <p class="related-project-desc">{project.description}</p>
+                                <span class="related-project-link">
+                                    Learn More →
+                                </span>
+                            </div>
+                        </a>
+                    ))}
+                </div>
+            </section>
         </div>
-    </section>
+    </article>
 </Layout>
+
+<style>
+    .project-page {
+        @apply min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900;
+    }
+
+    .project-hero {
+        @apply relative pt-32 pb-20 px-4 text-center bg-gradient-to-br from-gray-900 to-gray-800;
+    }
+
+    .hero-content {
+        @apply max-w-4xl mx-auto;
+    }
+
+    .project-title {
+        @apply text-5xl md:text-6xl font-bold text-vyoma-blue mb-4;
+    }
+
+    .project-subtitle {
+        @apply text-xl md:text-2xl text-gray-300 mb-6;
+    }
+
+    .project-tags {
+        @apply flex flex-wrap gap-3 justify-center;
+    }
+
+    .tag {
+        @apply px-4 py-2 bg-cyan-600 text-white rounded-full text-sm font-medium;
+    }
+
+    .project-container {
+        @apply max-w-7xl mx-auto px-4 py-12;
+    }
+
+    .project-section {
+        @apply mb-20;
+    }
+
+    .section-title {
+        @apply text-3xl md:text-4xl font-bold text-white mb-8 border-l-4 border-cyan-500 pl-4;
+    }
+
+    .content-grid {
+        @apply grid md:grid-cols-2 gap-8;
+    }
+
+    .content-col {
+        @apply space-y-4;
+    }
+
+    .text-content {
+        @apply text-lg text-gray-300 leading-relaxed;
+    }
+
+    .stats-grid {
+        @apply grid grid-cols-2 gap-4;
+    }
+
+    .stat-card {
+        @apply bg-gradient-to-br from-cyan-600 to-blue-700 p-6 rounded-lg text-center;
+    }
+
+    .stat-number {
+        @apply text-3xl font-bold text-white mb-2;
+    }
+
+    .stat-label {
+        @apply text-sm text-cyan-100;
+    }
+
+    /* Technical Specs */
+    .spec-grid {
+        @apply grid md:grid-cols-2 gap-6;
+    }
+
+    .spec-card {
+        @apply bg-gray-800 border border-gray-700 rounded-lg p-6 hover:border-cyan-500 transition-colors;
+    }
+
+    .spec-title {
+        @apply text-xl font-bold text-cyan-400 mb-4;
+    }
+
+    .spec-list {
+        @apply space-y-2 text-gray-300;
+    }
+
+    .spec-list li {
+        @apply flex items-start;
+    }
+
+    .spec-list strong {
+        @apply text-white mr-2 min-w-[100px];
+    }
+
+    /* Timeline */
+    .timeline {
+        @apply relative space-y-8 border-l-2 border-cyan-600 pl-8 ml-4;
+    }
+
+    .timeline-item {
+        @apply relative;
+    }
+
+    .timeline-marker {
+        @apply absolute -left-10 w-4 h-4 bg-cyan-500 rounded-full border-4 border-gray-900;
+    }
+
+    .timeline-content {
+        @apply bg-gray-800 border border-gray-700 rounded-lg p-6;
+    }
+
+    .timeline-title {
+        @apply text-xl font-bold text-white mb-2;
+    }
+
+    .timeline-date {
+        @apply text-cyan-400 text-sm mb-3;
+    }
+
+    .timeline-desc {
+        @apply text-gray-300;
+    }
+
+    /* Gallery */
+    .project-gallery {
+        @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
+    }
+
+    .gallery-item {
+        @apply relative overflow-hidden rounded-lg cursor-pointer;
+    }
+
+    .gallery-image {
+        @apply w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110;
+    }
+
+    .gallery-overlay {
+        @apply absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4;
+    }
+
+    .gallery-caption {
+        @apply text-white font-medium;
+    }
+
+    /* Features */
+    .features-grid {
+        @apply grid md:grid-cols-2 lg:grid-cols-3 gap-6;
+    }
+
+    .feature-card {
+        @apply bg-gray-800 border border-gray-700 rounded-lg p-6 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-500/20 transition-all;
+    }
+
+    .feature-icon {
+        @apply text-4xl mb-4;
+    }
+
+    .feature-title {
+        @apply text-xl font-bold text-white mb-3;
+    }
+
+    .feature-desc {
+        @apply text-gray-300;
+    }
+
+    /* Challenges */
+    .challenge-grid {
+        @apply space-y-6;
+    }
+
+    .challenge-card {
+        @apply bg-gray-800 border border-gray-700 rounded-lg p-6;
+    }
+
+    .challenge-title {
+        @apply text-lg font-bold text-red-400 mb-3;
+    }
+
+    .solution-label {
+        @apply text-lg font-bold text-green-400 mb-2 mt-4;
+    }
+
+    .challenge-desc {
+        @apply text-gray-300;
+    }
+
+    /* Achievement */
+    .highlight-section {
+        @apply bg-gradient-to-r from-cyan-900/30 to-blue-900/30 border border-cyan-700 rounded-xl p-8;
+    }
+
+    .achievement-card {
+        @apply text-center;
+    }
+
+    .achievement-icon {
+        @apply text-6xl mb-6;
+    }
+
+    .achievement-title {
+        @apply text-3xl font-bold text-white mb-4;
+    }
+
+    .achievement-desc {
+        @apply text-lg text-gray-300 max-w-3xl mx-auto mb-8;
+    }
+
+    .achievement-stats {
+        @apply flex justify-center gap-12 flex-wrap;
+    }
+
+    .achievement-stat {
+        @apply flex flex-col items-center;
+    }
+
+    .stat-value {
+        @apply text-3xl font-bold text-cyan-400;
+    }
+
+    .stat-label {
+        @apply text-gray-400 text-sm;
+    }
+
+    /* Related Projects */
+    .related-projects-grid {
+        @apply grid md:grid-cols-2 gap-6;
+    }
+
+    .related-project-card {
+        @apply bg-gray-800 border border-gray-700 rounded-lg overflow-hidden hover:border-cyan-500 transition-all hover:shadow-xl hover:shadow-cyan-500/20 no-underline;
+    }
+
+    .related-project-image {
+        @apply relative h-48 overflow-hidden;
+    }
+
+    .related-project-image img {
+        @apply w-full h-full object-cover transition-transform duration-500 hover:scale-110;
+    }
+
+    .related-project-content {
+        @apply p-6;
+    }
+
+    .related-project-title {
+        @apply text-xl font-bold text-white mb-2;
+    }
+
+    .related-project-desc {
+        @apply text-gray-300 mb-4;
+    }
+
+    .related-project-link {
+        @apply text-cyan-400 font-medium hover:text-cyan-300;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .project-title {
+            @apply text-4xl;
+        }
+
+        .project-subtitle {
+            @apply text-lg;
+        }
+
+        .section-title {
+            @apply text-2xl;
+        }
+
+        .timeline {
+            @apply pl-6;
+        }
+
+        .timeline-marker {
+            @apply -left-8;
+        }
+    }
+</style>

@@ -2,18 +2,98 @@
 const { heading, src } = Astro.props;
 ---
 
-<div class="col-lg-4 col-sm-6 my-2">
-    <div class="item">
-        <div class="flex justify-center h-40"><img
-            style="width: 250px"
-            src={src}
-            alt={heading}
-        /></div>
+<div class="col-lg-4 col-md-6 my-2">
+    <div class="achievement-card group">
+        <div class="achievement-image-container">
+            <img
+                src={src}
+                alt={`${heading} - Team Vyoma Achievement`}
+                loading="lazy"
+                class="achievement-image"
+            />
+        </div>
 
-        <h6 class="text-2xl text-vyoma-blue my-3">{heading}</h6>
+        <h6 class="achievement-heading">
+            {heading}
+        </h6>
 
-        <p class="flex-1 text-base text-white text-left">
+        <p class="achievement-description">
             <slot />
         </p>
     </div>
 </div>
+
+<style>
+    .achievement-card {
+        @apply 
+            p-6 
+            rounded-lg 
+            bg-gradient-to-br from-gray-900/50 to-gray-800/30 
+            border border-gray-700/50 
+            transition-all 
+            duration-300 
+            hover:shadow-xl 
+            hover:shadow-cyan-500/20 
+            hover:border-cyan-500/50 
+            hover:-translate-y-2;
+    }
+
+    .achievement-image-container {
+        @apply 
+            flex 
+            justify-center 
+            items-center 
+            mb-4 
+            overflow-hidden 
+            rounded-md;
+    }
+
+    .achievement-image {
+        @apply 
+            w-full 
+            max-w-[250px] 
+            h-auto 
+            object-contain 
+            transition-transform 
+            duration-300 
+            group-hover:scale-110;
+        aspect-ratio: 16 / 9;
+    }
+
+    .achievement-heading {
+        @apply 
+            text-2xl 
+            text-vyoma-blue 
+            font-semibold 
+            my-3 
+            transition-colors 
+            duration-300 
+            group-hover:text-cyan-400;
+    }
+
+    .achievement-description {
+        @apply 
+            text-base 
+            text-gray-300 
+            text-left 
+            leading-relaxed;
+    }
+
+    @media (max-width: 768px) {
+        .achievement-card {
+            @apply p-4;
+        }
+
+        .achievement-heading {
+            @apply text-xl;
+        }
+
+        .achievement-description {
+            @apply text-sm;
+        }
+
+        .achievement-image {
+            @apply max-w-[200px];
+        }
+    }
+</style>

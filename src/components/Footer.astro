@@ -1,9 +1,13 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
 <div class="footer">
     <div class="footer-top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-6 footer-links">
-                    <h4 class="">Team Vyoma</h4>
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Team Vyoma</h4>
                     <ul>
                         <li>
                             <i class="ion-ios-arrow-forward"></i>
@@ -16,34 +20,34 @@
                             <i class="ion-ios-arrow-forward"></i>
                             <a
                                 class="text-md text-white hover:text-sky-400"
-                                href="/about">About us</a
+                                href="/about">About Us</a
+                            >
+                        </li>
+                        <li>
+                            <i class="ion-ios-arrow-forward"></i>
+                            <a
+                                class="text-md text-white hover:text-sky-400"
+                                href="/team">Our Team</a
                             >
                         </li>
                     </ul>
                 </div>
 
-                <div class="col-lg-4 col-md-6 footer-links">
-                    <h4>Useful Links</h4>
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Projects & Work</h4>
                     <ul>
                         <li>
                             <i class="ion-ios-arrow-forward"></i>
                             <a
                                 class="text-md text-white hover:text-sky-400"
-                                href="/projects">Projects</a
+                                href="/projects">All Projects</a
                             >
                         </li>
                         <li>
                             <i class="ion-ios-arrow-forward"></i>
                             <a
                                 class="text-md text-white hover:text-sky-400"
-                                href="/team">Team</a
-                            >
-                        </li>
-                        <li>
-                            <i class="ion-ios-arrow-forward"></i>
-                            <a
-                                class="text-md text-white hover:text-sky-400"
-                                href="/#contact">Contact</a
+                                href="/achievements">Achievements</a
                             >
                         </li>
                         <li>
@@ -56,27 +60,63 @@
                     </ul>
                 </div>
 
-                <div class="col-lg-4 col-md-6 footer-contact text-base">
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Get Involved</h4>
+                    <ul>
+                        <li>
+                            <i class="ion-ios-arrow-forward"></i>
+                            <a
+                                class="text-md text-white hover:text-sky-400"
+                                href="/sponsors">Sponsor Us</a
+                            >
+                        </li>
+                        <li>
+                            <i class="ion-ios-arrow-forward"></i>
+                            <a
+                                class="text-md text-white hover:text-sky-400"
+                                href="/#contact">Contact Us</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-contact text-base">
                     <h4>Contact Us</h4>
                     <p>
                         RV College of Engineering<br />
-                        Pattanagere, Mysuru road<br />
+                        Pattanagere, Mysuru Road<br />
                         Bangalore, Karnataka, 560059 <br />
                         <strong>Email:</strong>
-                        <span>projectvyoma@rvce.edu.in</span
-                        ><br />
+                        <a href="mailto:projectvyoma@rvce.edu.in" class="text-white hover:text-sky-400">
+                            projectvyoma@rvce.edu.in
+                        </a><br />
                     </p>
 
                     <div class="social-links">
-                        <a href="https://x.com/projectvyoma"
-                            ><i class="ion-logo-twitter"></i></a
+                        <a 
+                            href="https://x.com/projectvyoma" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            aria-label="Follow us on Twitter"
                         >
-                        <a href="https://www.linkedin.com/company/team-vyoma"
-                            ><i class="ion-logo-linkedin"></i></a
+                            <i class="ion-logo-twitter"></i>
+                        </a>
+                        <a 
+                            href="https://www.linkedin.com/company/team-vyoma" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            aria-label="Connect on LinkedIn"
                         >
-                        <a href="https://www.instagram.com/teamvyoma"
-                            ><i class="ion-logo-instagram"></i></a
+                            <i class="ion-logo-linkedin"></i>
+                        </a>
+                        <a 
+                            href="https://www.instagram.com/teamvyoma" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            aria-label="Follow us on Instagram"
                         >
+                            <i class="ion-logo-instagram"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -89,8 +129,115 @@
                 class="col-md-6 copyright"
                 style="color: #fff; font-size: 0.8rem;"
             >
-                Copyright &copy; 2015 Team Vyoma. MIT License.
+                Copyright &copy; 2015-{currentYear} Team Vyoma. MIT License.
             </div>
         </div>
     </div>
+
+    <!-- Back to Top Button -->
+    <button 
+        id="back-to-top" 
+        class="back-to-top"
+        aria-label="Back to top"
+        title="Back to top"
+    >
+        <i class="fas fa-chevron-up"></i>
+    </button>
 </div>
+
+<style>
+    /* Back to Top Button Styling */
+    .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: #30c5dc;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+        box-shadow: 0 4px 12px rgba(48, 197, 220, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+    }
+
+    .back-to-top:hover {
+        background: #002e5f;
+        transform: translateY(-5px);
+        box-shadow: 0 6px 16px rgba(48, 197, 220, 0.6);
+    }
+
+    .back-to-top:focus {
+        outline: 2px solid #30c5dc;
+        outline-offset: 2px;
+    }
+
+    .back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    @media (max-width: 768px) {
+        .back-to-top {
+            width: 45px;
+            height: 45px;
+            bottom: 20px;
+            right: 20px;
+            font-size: 1rem;
+        }
+    }
+
+    /* Make email clickable */
+    .footer-contact a {
+        text-decoration: none;
+    }
+
+    .footer-contact a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<script>
+    // Back to Top Button Functionality
+    document.addEventListener('DOMContentLoaded', () => {
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        if (backToTopButton) {
+            // Show/hide button based on scroll position
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+
+            // Scroll to top on click
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Keyboard support
+            backToTopButton.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        }
+    });
+</script>

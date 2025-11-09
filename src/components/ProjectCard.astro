@@ -3,23 +3,153 @@ const { name, image, slug, reversed } = Astro.props;
 ---
 
 <a
-    class={`hover:no-underline relative project-container overflow-hidden flex flex-col max-sm:flex-col items-center max-w-screen-lg w-full bg-neutral-700 rounded-lg shadow-md text-white`}
+    class="project-card group"
     href={`/projects/${slug}`}
 >
-    <h3 class="mt-4 drop-shadow text-white text-3xl font-semibold">
+    <h3 class="project-title">
         {name}
     </h3>
 
-    <div class={`flex sm:flex-row ${reversed ? "sm:flex-row-reverse" : ""} max-sm:flex-col items-center gap-4 p-4`}>
-        <img
-            src={image}
-            alt={name}
-            class="rounded-2xl h-64 max-w-80 object-cover max-sm:text-center max-sm:items-center"
-            style="border: .5rem solid #fff; box-shadow: 0 0 .5rem rgba(0, 0, 0, .3);"
-        />
+    <div class={`project-content ${reversed ? "sm:flex-row-reverse" : ""}`}>
+        <div class="project-image-wrapper">
+            <img
+                src={image}
+                alt={`${name} - Team Vyoma Project`}
+                loading="lazy"
+                class="project-image"
+            />
+        </div>
 
-        <div class="flex flex-col gap-4 p-4">
+        <div class="project-description">
             <slot />
         </div>
     </div>
 </a>
+
+<style>
+    .project-card {
+        @apply
+            relative
+            flex
+            flex-col
+            items-center
+            w-full
+            max-w-screen-lg
+            bg-neutral-700
+            rounded-lg
+            shadow-md
+            text-white
+            overflow-hidden
+            transition-all
+            duration-300
+            hover:shadow-2xl
+            hover:shadow-cyan-500/30
+            hover:-translate-y-1
+            hover:bg-neutral-600
+            no-underline;
+    }
+
+    .project-card:hover {
+        text-decoration: none;
+    }
+
+    .project-title {
+        @apply
+            mt-6
+            mb-2
+            text-3xl
+            font-bold
+            text-white
+            drop-shadow-lg
+            transition-colors
+            duration-300
+            text-center
+            px-4;
+    }
+
+    .group:hover .project-title {
+        @apply text-cyan-400;
+    }
+
+    .project-content {
+        @apply
+            flex
+            flex-col
+            sm:flex-row
+            items-center
+            gap-6
+            p-6
+            w-full;
+    }
+
+    .project-image-wrapper {
+        @apply
+            relative
+            flex-shrink-0
+            overflow-hidden
+            rounded-2xl;
+    }
+
+    .project-image {
+        @apply
+            w-full
+            sm:w-80
+            h-48
+            sm:h-64
+            object-cover
+            rounded-2xl
+            transition-transform
+            duration-500
+            ease-out;
+        border: 0.5rem solid #fff;
+        box-shadow: 
+            0 0 0.5rem rgba(0, 0, 0, 0.3),
+            0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .group:hover .project-image {
+        @apply scale-105;
+    }
+
+    .project-description {
+        @apply
+            flex
+            flex-col
+            gap-4
+            p-4
+            flex-1
+            text-gray-200
+            leading-relaxed;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 640px) {
+        .project-card {
+            @apply mx-2;
+        }
+
+        .project-title {
+            @apply text-2xl mt-4;
+        }
+
+        .project-content {
+            @apply gap-4 p-4;
+        }
+
+        .project-image {
+            @apply w-full h-56;
+            border-width: 0.375rem;
+        }
+
+        .project-description {
+            @apply p-2 text-sm;
+        }
+    }
+
+    /* Tablet responsive */
+    @media (min-width: 641px) and (max-width: 768px) {
+        .project-image {
+            @apply w-72 h-56;
+        }
+    }
+</style>

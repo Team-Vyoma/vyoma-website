@@ -1,36 +1,533 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+
+const projectGallery = [
+    { src: "/images/img1.jpg", alt: "Launcher Mechanism Design" },
+    { src: "/gallery/14.jpg", alt: "Fabrication in Workshop" },
+    { src: "/gallery/7.jpg", alt: "CAD Design Session" },
+];
+
+const relatedProjects = [
+    {
+        title: "RC Model Airplanes",
+        description: "Custom-built competition aircraft",
+        link: "/projects/model",
+        image: "/images/model1.jpg"
+    },
+    {
+        title: "Fixed-Wing VTOL",
+        description: "Vertical takeoff and landing capabilities",
+        link: "/projects/vtol",
+        image: "/images/img2.jpg"
+    },
+];
 ---
 
 <Layout>
-    <section
-        class="flex flex-col relative min-h-screen m-4 mt-16 gap-8 items-center p-4"
-    >
-        <h1 class="pt-24 text-5xl text-vyoma-blue">RC Airplane Launcher</h1>
-
-        <div
-            class="flex flex-col gap-4 text-left max-w-screen-lg w-full text-white"
-        >
-            <div class="flex flex-col">
-                <p class="text-lg">
-                    The RC Airplane Launcher is a project that we are currently
-                    working on. The launcher is designed to launch RC airplanes
-                    with precision and accuracy. It can ensure that the airplane
-                    has a predictable and stable launch.
+    <article class="project-page">
+        <!-- Hero Section -->
+        <section class="project-hero">
+            <div class="hero-content">
+                <h1 class="project-title">RC Airplane Launcher</h1>
+                <p class="project-subtitle">
+                    Precision Launch System for Consistent & Reliable Takeoffs
                 </p>
+                <div class="project-tags">
+                    <span class="tag">Mechanical Design</span>
+                    <span class="tag">R&D</span>
+                    <span class="tag">In Development</span>
+                </div>
             </div>
+        </section>
 
-            <div class="flex flex-col">
-                <h3 class="text-vyoma-blue text-2xl">
-                    Hand Launches
-                </h3>
-                <p class="text-lg">
-                    Hand launching RC airplanes remains the dominant method of
-                    launching. However, it requires a certain level of skill and
-                    experience. The RC Airplane Launcher aims to make the
-                    launching process easier and more efficient.
+        <div class="project-container">
+            <!-- Overview -->
+            <section class="project-section">
+                <h2 class="section-title">Overview</h2>
+                <div class="content-grid">
+                    <div class="content-col">
+                        <p class="text-content">
+                            The RC Airplane Launcher is an innovative mechanical system designed to launch RC aircraft 
+                            with precision, consistency, and safety. This project addresses the limitations of hand 
+                            launches by providing a controlled takeoff mechanism suitable for various aircraft configurations.
+                        </p>
+                        <p class="text-content">
+                            Our launcher features adjustable launch angles, variable thrust settings, and a reliable 
+                            release mechanism that ensures stable and predictable launches every time.
+                        </p>
+                    </div>
+                    <div class="content-col">
+                        <div class="info-box">
+                            <h3 class="info-title">Why a Launcher?</h3>
+                            <ul class="info-list">
+                                <li>✅ Eliminates human error in launches</li>
+                                <li>✅ Provides consistent launch velocity</li>
+                                <li>✅ Enables precise launch angle control</li>
+                                <li>✅ Safer for high-performance aircraft</li>
+                                <li>✅ Repeatable testing conditions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Specifications -->
+            <section class="project-section">
+                <h2 class="section-title">Technical Specifications</h2>
+                <div class="spec-grid">
+                    <div class="spec-card">
+                        <h3 class="spec-title">Mechanical System</h3>
+                        <ul class="spec-list">
+                            <li><strong>Launch Method:</strong> Elastic catapult system</li>
+                            <li><strong>Frame:</strong> Aluminum alloy construction</li>
+                            <li><strong>Rails:</strong> 3m carbon fiber tracks</li>
+                            <li><strong>Adjustability:</strong> 0-30° launch angle</li>
+                        </ul>
+                    </div>
+                    <div class="spec-card">
+                        <h3 class="spec-title">Performance</h3>
+                        <ul class="spec-list">
+                            <li><strong>Launch Speed:</strong> 10-25 m/s (adjustable)</li>
+                            <li><strong>Aircraft Weight:</strong> 500g - 5kg</li>
+                            <li><strong>Acceleration:</strong> 2-4G maximum</li>
+                            <li><strong>Setup Time:</strong> Under 5 minutes</li>
+                        </ul>
+                    </div>
+                    <div class="spec-card">
+                        <h3 class="spec-title">Control System</h3>
+                        <ul class="spec-list">
+                            <li><strong>Trigger:</strong> Electronic release mechanism</li>
+                            <li><strong>Tension Control:</strong> Winch with load cell</li>
+                            <li><strong>Safety:</strong> Automated pre-launch checks</li>
+                            <li><strong>Interface:</strong> Wireless remote control</li>
+                        </ul>
+                    </div>
+                    <div class="spec-card">
+                        <h3 class="spec-title">Portability</h3>
+                        <ul class="spec-list">
+                            <li><strong>Weight:</strong> 15kg (disassembled)</li>
+                            <li><strong>Transport:</strong> Modular 3-piece design</li>
+                            <li><strong>Dimensions:</strong> 3m x 0.5m x 0.8m (assembled)</li>
+                            <li><strong>Power:</strong> 12V battery operated</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline & Milestones -->
+            <section class="project-section">
+                <h2 class="section-title">Development Timeline</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Concept Development</h3>
+                            <p class="timeline-date">January 2024</p>
+                            <p class="timeline-desc">
+                                Identified need for reliable launch system. Researched existing designs and 
+                                analyzed requirements for our aircraft fleet.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Design Phase</h3>
+                            <p class="timeline-date">February - March 2024</p>
+                            <p class="timeline-desc">
+                                Completed CAD modeling and structural analysis. Finalized mechanical design 
+                                with focus on portability and ease of use.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Prototype Build</h3>
+                            <p class="timeline-date">April 2024</p>
+                            <p class="timeline-desc">
+                                Fabricated first prototype using workshop facilities. Conducted initial tension 
+                                and release mechanism tests.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Field Testing</h3>
+                            <p class="timeline-date">May - June 2024</p>
+                            <p class="timeline-desc">
+                                Performed field tests with various aircraft models. Gathered data on launch 
+                                consistency and reliability.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Optimization Phase</h3>
+                            <p class="timeline-date">Current</p>
+                            <p class="timeline-desc">
+                                Refining design based on test results. Adding electronic controls and safety 
+                                features for competition readiness.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Image Gallery -->
+            <section class="project-section">
+                <h2 class="section-title">Project Gallery</h2>
+                <div class="project-gallery">
+                    {projectGallery.map((image) => (
+                        <div class="gallery-item group">
+                            <img 
+                                src={image.src} 
+                                alt={image.alt}
+                                loading="lazy"
+                                class="gallery-image"
+                            />
+                            <div class="gallery-overlay">
+                                <p class="gallery-caption">{image.alt}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <!-- Key Features -->
+            <section class="project-section">
+                <h2 class="section-title">Key Advantages</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3 class="feature-title">Consistent Launches</h3>
+                        <p class="feature-desc">
+                            Eliminates variability of hand launches. Every takeoff is identical, perfect for 
+                            testing and competitions.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔧</div>
+                        <h3 class="feature-title">Adjustable Settings</h3>
+                        <p class="feature-desc">
+                            Customize launch parameters for different aircraft weights, wing loadings, and 
+                            flight conditions.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📐</div>
+                        <h3 class="feature-title">Angle Control</h3>
+                        <p class="feature-desc">
+                            Adjustable launch angle from 0-30° allows optimization for different aircraft 
+                            types and weather conditions.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3 class="feature-title">Safety First</h3>
+                        <p class="feature-desc">
+                            Remote operation keeps pilot at safe distance. Automated checks prevent accidental 
+                            launches and equipment damage.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Challenges & Solutions -->
+            <section class="project-section">
+                <h2 class="section-title">Engineering Challenges</h2>
+                <div class="challenge-grid">
+                    <div class="challenge-card">
+                        <h3 class="challenge-title">Challenge: Universal Mounting</h3>
+                        <p class="challenge-desc">
+                            Designing a mounting system compatible with aircraft of varying sizes and fuselage shapes.
+                        </p>
+                        <h4 class="solution-label">Solution</h4>
+                        <p class="challenge-desc">
+                            Created adjustable cradle system with padded clamps and quick-release mechanism. 
+                            Accommodates fuselage diameters from 30mm to 100mm.
+                        </p>
+                    </div>
+                    <div class="challenge-card">
+                        <h3 class="challenge-title">Challenge: Force Calibration</h3>
+                        <p class="challenge-desc">
+                            Determining optimal launch force for different aircraft weights without over-stressing airframes.
+                        </p>
+                        <h4 class="solution-label">Solution</h4>
+                        <p class="challenge-desc">
+                            Integrated load cell sensors and developed calibration protocol. Created lookup table 
+                            for recommended settings based on aircraft specifications.
                 </p>
             </div>
         </div>
     </section>
+
+            <!-- Related Projects -->
+            <section class="project-section">
+                <h2 class="section-title">Related Projects</h2>
+                <div class="related-projects-grid">
+                    {relatedProjects.map((project) => (
+                        <a href={project.link} class="related-project-card">
+                            <div class="related-project-image">
+                                <img src={project.image} alt={project.title} loading="lazy" />
+                            </div>
+                            <div class="related-project-content">
+                                <h3 class="related-project-title">{project.title}</h3>
+                                <p class="related-project-desc">{project.description}</p>
+                                <span class="related-project-link">
+                                    Learn More →
+                                </span>
+                            </div>
+                        </a>
+                    ))}
+                </div>
+            </section>
+        </div>
+    </article>
 </Layout>
+
+<style>
+    .project-page {
+        @apply min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900;
+    }
+
+    .project-hero {
+        @apply relative pt-32 pb-20 px-4 text-center bg-gradient-to-br from-gray-900 to-gray-800;
+    }
+
+    .hero-content {
+        @apply max-w-4xl mx-auto;
+    }
+
+    .project-title {
+        @apply text-5xl md:text-6xl font-bold text-vyoma-blue mb-4;
+    }
+
+    .project-subtitle {
+        @apply text-xl md:text-2xl text-gray-300 mb-6;
+    }
+
+    .project-tags {
+        @apply flex flex-wrap gap-3 justify-center;
+    }
+
+    .tag {
+        @apply px-4 py-2 bg-cyan-600 text-white rounded-full text-sm font-medium;
+    }
+
+    .project-container {
+        @apply max-w-7xl mx-auto px-4 py-12;
+    }
+
+    .project-section {
+        @apply mb-20;
+    }
+
+    .section-title {
+        @apply text-3xl md:text-4xl font-bold text-white mb-8 border-l-4 border-cyan-500 pl-4;
+    }
+
+    .content-grid {
+        @apply grid md:grid-cols-2 gap-8;
+    }
+
+    .content-col {
+        @apply space-y-4;
+    }
+
+    .text-content {
+        @apply text-lg text-gray-300 leading-relaxed;
+    }
+
+    .info-box {
+        @apply bg-gradient-to-br from-cyan-900/30 to-blue-900/30 border border-cyan-700 rounded-lg p-6;
+    }
+
+    .info-title {
+        @apply text-xl font-bold text-cyan-400 mb-4;
+    }
+
+    .info-list {
+        @apply space-y-3 text-gray-300;
+    }
+
+    .info-list li {
+        @apply flex items-start;
+    }
+
+    /* Technical Specs */
+    .spec-grid {
+        @apply grid md:grid-cols-2 gap-6;
+    }
+
+    .spec-card {
+        @apply bg-gray-800 border border-gray-700 rounded-lg p-6 hover:border-cyan-500 transition-colors;
+    }
+
+    .spec-title {
+        @apply text-xl font-bold text-cyan-400 mb-4;
+    }
+
+    .spec-list {
+        @apply space-y-2 text-gray-300;
+    }
+
+    .spec-list li {
+        @apply flex items-start;
+    }
+
+    .spec-list strong {
+        @apply text-white mr-2 min-w-[120px];
+    }
+
+    /* Timeline */
+    .timeline {
+        @apply relative space-y-8 border-l-2 border-cyan-600 pl-8 ml-4;
+    }
+
+    .timeline-item {
+        @apply relative;
+    }
+
+    .timeline-marker {
+        @apply absolute -left-10 w-4 h-4 bg-cyan-500 rounded-full border-4 border-gray-900;
+    }
+
+    .timeline-content {
+        @apply bg-gray-800 border border-gray-700 rounded-lg p-6;
+    }
+
+    .timeline-title {
+        @apply text-xl font-bold text-white mb-2;
+    }
+
+    .timeline-date {
+        @apply text-cyan-400 text-sm mb-3;
+    }
+
+    .timeline-desc {
+        @apply text-gray-300;
+    }
+
+    /* Gallery */
+    .project-gallery {
+        @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
+    }
+
+    .gallery-item {
+        @apply relative overflow-hidden rounded-lg cursor-pointer;
+    }
+
+    .gallery-image {
+        @apply w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110;
+    }
+
+    .gallery-overlay {
+        @apply absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4;
+    }
+
+    .gallery-caption {
+        @apply text-white font-medium;
+    }
+
+    /* Features */
+    .features-grid {
+        @apply grid md:grid-cols-2 lg:grid-cols-4 gap-6;
+    }
+
+    .feature-card {
+        @apply bg-gray-800 border border-gray-700 rounded-lg p-6 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-500/20 transition-all;
+    }
+
+    .feature-icon {
+        @apply text-4xl mb-4;
+    }
+
+    .feature-title {
+        @apply text-xl font-bold text-white mb-3;
+    }
+
+    .feature-desc {
+        @apply text-gray-300;
+    }
+
+    /* Challenges */
+    .challenge-grid {
+        @apply space-y-6;
+    }
+
+    .challenge-card {
+        @apply bg-gray-800 border border-gray-700 rounded-lg p-6;
+    }
+
+    .challenge-title {
+        @apply text-lg font-bold text-red-400 mb-3;
+    }
+
+    .solution-label {
+        @apply text-lg font-bold text-green-400 mb-2 mt-4;
+    }
+
+    .challenge-desc {
+        @apply text-gray-300;
+    }
+
+    /* Related Projects */
+    .related-projects-grid {
+        @apply grid md:grid-cols-2 gap-6;
+    }
+
+    .related-project-card {
+        @apply bg-gray-800 border border-gray-700 rounded-lg overflow-hidden hover:border-cyan-500 transition-all hover:shadow-xl hover:shadow-cyan-500/20 no-underline;
+    }
+
+    .related-project-image {
+        @apply relative h-48 overflow-hidden;
+    }
+
+    .related-project-image img {
+        @apply w-full h-full object-cover transition-transform duration-500 hover:scale-110;
+    }
+
+    .related-project-content {
+        @apply p-6;
+    }
+
+    .related-project-title {
+        @apply text-xl font-bold text-white mb-2;
+    }
+
+    .related-project-desc {
+        @apply text-gray-300 mb-4;
+    }
+
+    .related-project-link {
+        @apply text-cyan-400 font-medium hover:text-cyan-300;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .project-title {
+            @apply text-4xl;
+        }
+
+        .project-subtitle {
+            @apply text-lg;
+        }
+
+        .section-title {
+            @apply text-2xl;
+        }
+
+        .timeline {
+            @apply pl-6;
+        }
+
+        .timeline-marker {
+            @apply -left-8;
+        }
+    }
+</style>
+

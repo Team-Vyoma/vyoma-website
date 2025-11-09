@@ -5,8 +5,7 @@ import { teamMembers } from "../lib/team";
 
 // Organize members by department
 const leaders = teamMembers.filter(m => m.department === "Leadership");
-const technical = teamMembers.filter(m => m.department === "Technical");
-const nonTechnical = teamMembers.filter(m => m.department === "Non-Technical");
+const allMembers = teamMembers.filter(m => m.department !== "Leadership");
 ---
 
 <Layout>
@@ -32,26 +31,11 @@ const nonTechnical = teamMembers.filter(m => m.department === "Non-Technical");
                 </div>
             </div>
 
-            <!-- Technical Division -->
+            <!-- All Team Members -->
             <div class="team-category">
-                <h2 class="category-title">Technical Division</h2>
+                <h2 class="category-title">Team Members</h2>
                 <div class="team-grid">
-                    {technical.map((member) => (
-                        <TeamMember
-                            name={member.name}
-                            src={member.src}
-                            title={member.title}
-                            linkedin={member.linkedin}
-                        />
-                    ))}
-                </div>
-            </div>
-
-            <!-- Non-Technical Division -->
-            <div class="team-category">
-                <h2 class="category-title">Non-Technical Division</h2>
-                <div class="team-grid">
-                    {nonTechnical.map((member) => (
+                    {allMembers.map((member) => (
                         <TeamMember
                             name={member.name}
                             src={member.src}

@@ -1,16 +1,174 @@
-<header class="header ">
-    <a href="#" class="logo"><img src="/images/image.png" alt="" /></a>
-    <div class="fas fa-bars"></div>
-    <nav class="navbar">
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/projects">Projects</a></li>
-            <li><a href="/gallery">Gallery</a></li>
-            <li><a href="/achievements">Achievements</a></li>
-            <li><a href="/sponsors">Sponsors</a></li>
-            <li><a href="/team">Team</a></li>
-            <li><a href="/#contact">Contact</a></li>
+---
+const currentPath = Astro.url.pathname;
+
+// Helper function to check if nav item is active
+const isActive = (path: string) => {
+    if (path === '/') {
+        return currentPath === '/';
+    }
+    return currentPath.startsWith(path);
+};
+---
+
+<header class="header">
+    <a href="/" class="logo" aria-label="Team Vyoma Home">
+        <img src="/images/image.png" alt="Team Vyoma Logo" />
+    </a>
+    <button 
+        class="fas fa-bars mobile-menu-toggle" 
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="main-navigation"
+    ></button>
+    <nav class="navbar" id="main-navigation" aria-label="Main navigation">
+        <ul role="menubar">
+            <li role="none"><a href="/" class={isActive('/') ? 'active' : ''} role="menuitem">Home</a></li>
+            <li role="none"><a href="/about" class={isActive('/about') ? 'active' : ''} role="menuitem">About</a></li>
+            <li role="none"><a href="/projects" class={isActive('/projects') ? 'active' : ''} role="menuitem">Projects</a></li>
+            <li role="none"><a href="/gallery" class={isActive('/gallery') ? 'active' : ''} role="menuitem">Gallery</a></li>
+            <li role="none"><a href="/achievements" class={isActive('/achievements') ? 'active' : ''} role="menuitem">Achievements</a></li>
+            <li role="none"><a href="/sponsors" class={isActive('/sponsors') ? 'active' : ''} role="menuitem">Sponsors</a></li>
+            <li role="none"><a href="/team" class={isActive('/team') ? 'active' : ''} role="menuitem">Team</a></li>
+            <li role="none"><a href="/#contact" class="smooth-scroll" role="menuitem">Contact</a></li>
         </ul>
     </nav>
 </header>
+
+<style>
+    /* Active state styling */
+    .navbar a.active {
+        color: #30c5dc;
+        position: relative;
+    }
+
+    .navbar a.active::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #30c5dc;
+    }
+
+    /* Mobile active state */
+    @media (max-width: 1000px) {
+        .navbar a.active::after {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+        }
+    }
+
+    /* Focus styles for accessibility - only show for keyboard navigation */
+    .mobile-menu-toggle:focus-visible,
+    .navbar a:focus-visible {
+        outline: 2px solid #30c5dc;
+        outline-offset: 2px;
+    }
+
+    /* Remove default focus outline for mouse clicks */
+    .mobile-menu-toggle:focus:not(:focus-visible),
+    .navbar a:focus:not(:focus-visible) {
+        outline: none;
+    }
+
+    /* Change button cursor */
+    .mobile-menu-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    // Mobile menu toggle with vanilla JavaScript
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.querySelector('.mobile-menu-toggle') as HTMLButtonElement;
+        const navbar = document.querySelector('.navbar') as HTMLElement;
+        
+        if (menuToggle && navbar) {
+            // Toggle menu on button click
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('fa-times');
+                navbar.classList.toggle('nav-toggle');
+                
+                // Update aria-expanded
+                const isExpanded = navbar.classList.contains('nav-toggle');
+                menuToggle.setAttribute('aria-expanded', isExpanded.toString());
+            });
+
+            // Close menu on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && navbar.classList.contains('nav-toggle')) {
+                    menuToggle.classList.remove('fa-times');
+                    navbar.classList.remove('nav-toggle');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    menuToggle.focus(); // Return focus to toggle button
+                }
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                const target = e.target as HTMLElement;
+                if (!navbar.contains(target) && !menuToggle.contains(target)) {
+                    if (navbar.classList.contains('nav-toggle')) {
+                        menuToggle.classList.remove('fa-times');
+                        navbar.classList.remove('nav-toggle');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                    }
+                }
+            });
+
+            // Close menu when nav link is clicked
+            const navLinks = navbar.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('fa-times');
+                    navbar.classList.remove('nav-toggle');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+
+        // Smooth scroll for hash links
+        const smoothScrollLinks = document.querySelectorAll('a.smooth-scroll, a[href^="/#"]');
+        smoothScrollLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href && href.includes('#')) {
+                    const hash = href.split('#')[1];
+                    if (hash) {
+                        const target = document.getElementById(hash);
+                        // Only prevent default if the target exists on current page
+                        if (target) {
+                            e.preventDefault();
+                            target.scrollIntoView({ 
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                            // Update URL without jumping
+                            history.pushState(null, '', `#${hash}`);
+                        }
+                        // If target doesn't exist, let the link navigate normally
+                    }
+                }
+            });
+        });
+    });
+
+    // Handle scroll for sticky header background
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('.header') as HTMLElement;
+        if (header) {
+            if (window.scrollY > 35) {
+                header.style.background = '#002e5f';
+                header.style.boxShadow = '0 .2rem .5rem rgba(0,0,0,.4)';
+            } else {
+                header.style.background = 'none';
+                header.style.boxShadow = 'none';
+            }
+        }
+    });
+</script>

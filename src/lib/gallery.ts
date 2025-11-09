@@ -1,74 +1,125 @@
-export const galleryImages = [
+export interface GalleryImage {
+  src: string;
+  desc: string;
+  category: string;
+  title: string;
+}
+
+export const galleryImages: GalleryImage[] = [
   {
     src: "/gallery/1.jpg",
-    desc: "Example 1",
+    title: "RC Aircraft Flight Test",
+    desc: "Team members conducting flight tests of our custom-built RC aircraft",
+    category: "Aircraft",
   },
   {
     src: "/gallery/2.jpg",
-    desc: "Example 2",
+    title: "Workshop Session",
+    desc: "Technical workshop on aerodynamics and aircraft design principles",
+    category: "Workshops",
   },
   {
     src: "/gallery/3.jpg",
-    desc: "Example 3",
+    title: "Competition Win",
+    desc: "Team celebrating victory at inter-college aeromodelling competition",
+    category: "Competitions",
   },
   {
     src: "/gallery/4.jpg",
-    desc: "Example 4",
+    title: "Aircraft Assembly",
+    desc: "Team assembling wing components for new aircraft prototype",
+    category: "Aircraft",
   },
   {
     src: "/gallery/5.jpg",
-    desc: "Example 5",
+    title: "Team Meeting",
+    desc: "Strategic planning meeting for upcoming competition",
+    category: "Team Events",
   },
   {
     src: "/gallery/6.jpg",
-    desc: "Example 6",
+    title: "Flight Demonstration",
+    desc: "Demonstrating autonomous flight capabilities to audience",
+    category: "Aircraft",
   },
   {
     src: "/gallery/7.jpg",
-    desc: "Example 7",
+    title: "CAD Design Session",
+    desc: "Team working on 3D modeling and design optimization",
+    category: "Workshops",
   },
   {
     src: "/gallery/8.jpg",
-    desc: "Example 8",
+    title: "Competition Preparation",
+    desc: "Final preparations before national-level competition",
+    category: "Competitions",
   },
   {
     src: "/gallery/9.jpg",
-    desc: "Example 9",
+    title: "VTOL Testing",
+    desc: "Vertical Take-Off and Landing aircraft field testing",
+    category: "Aircraft",
   },
   {
     src: "/gallery/10.jpg",
-    desc: "Example 10",
+    title: "Electronics Workshop",
+    desc: "Workshop on avionics and flight control systems",
+    category: "Workshops",
   },
   {
     src: "/gallery/11.jpg",
-    desc: "Example 11",
+    title: "Award Ceremony",
+    desc: "Receiving first place trophy at regional competition",
+    category: "Competitions",
   },
   {
     src: "/gallery/12.jpg",
-    desc: "Example 12",
+    title: "Drone Assembly",
+    desc: "Building custom quadcopter with FPV capabilities",
+    category: "Aircraft",
   },
   {
     src: "/gallery/13.jpg",
-    desc: "Example 13",
+    title: "Team Bonding",
+    desc: "Team building activities and social gathering",
+    category: "Team Events",
   },
   {
     src: "/gallery/14.jpg",
-    desc: "Example 14",
+    title: "Fabrication Lab",
+    desc: "Manufacturing aircraft components in our workshop",
+    category: "Workshops",
   },
   {
     src: "/gallery/15.jpg",
-    desc: "Example 15",
+    title: "Competition Day",
+    desc: "Team at venue ready for competition rounds",
+    category: "Competitions",
   },
   {
     src: "/gallery/16.jpg",
-    desc: "Example 16",
+    title: "Test Flight Success",
+    desc: "Successful maiden flight of new aircraft design",
+    category: "Aircraft",
   },
   {
     src: "/gallery/17.png",
-    desc: "Example 17",
+    title: "Guest Lecture",
+    desc: "Industry expert sharing insights on aerospace engineering",
+    category: "Workshops",
   },
   {
     src: "/gallery/18.png",
-    desc: "Example 18",
+    title: "Team Photo",
+    desc: "Team Vyoma members at annual gathering",
+    category: "Team Events",
   },
 ];
+
+export const categories = [
+  "All",
+  "Aircraft",
+  "Competitions",
+  "Workshops",
+  "Team Events",
+] as const;

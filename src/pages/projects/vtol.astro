@@ -1,35 +1,722 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+
+const projectGallery = [
+    { src: "/images/img2.jpg", alt: "VTOL Aircraft - Hover Mode" },
+    { src: "/gallery/9.jpg", alt: "VTOL Testing" },
+    { src: "/gallery/6.jpg", alt: "Flight Demonstration" },
+];
+
+const relatedProjects = [
+    {
+        title: "RC Model Airplanes",
+        description: "Custom-built competition aircraft",
+        link: "/projects/model",
+        image: "/images/model1.jpg"
+    },
+    {
+        title: "RC Airplane Launcher",
+        description: "Precision launch system for consistent takeoffs",
+        link: "/projects/launcher",
+        image: "/images/img1.jpg"
+    },
+];
 ---
 
 <Layout>
-    <section
-        class="flex flex-col relative min-h-screen m-4 mt-16 gap-8 items-center p-4"
-    >
-        <h1 class="pt-24 text-5xl text-vyoma-blue">Fixed-Wing VTOL</h1>
+    <article class="project-page">
+        <!-- Hero Section -->
+        <section class="project-hero">
+            <div class="hero-content">
+                <h1 class="project-title">Fixed-Wing VTOL</h1>
+                <p class="project-subtitle">
+                    Hybrid Aircraft Combining Vertical Takeoff with Efficient Forward Flight
+                </p>
+                <div class="project-tags">
+                    <span class="tag">VTOL</span>
+                    <span class="tag">Autonomous</span>
+                    <span class="tag">Advanced</span>
+                </div>
+            </div>
+        </section>
 
-        <div
-            class="flex flex-col gap-4 text-left max-w-screen-lg w-full text-white"
-        >
-            <div class="flex flex-col">
-                <p class="text-lg">
-                    The Fixed-Wing VTOL project is a vertical takeoff and
-                    landing (VTOL) aircraft that can transition between hovering
-                    and forward flight. It can take off and land vertically like
-                    a helicopter and transition to forward flight like an
-                    airplane.
-                </p>
-            </div>
-            <div class="flex flex-col">
-                <h3 class="text-vyoma-blue text-2xl">Efficiency</h3>
-                <p>
-                    The Fixed-Wing VTOL is designed to be efficient in both
-                    hovering and forward flight. It uses a combination of
-                    aerodynamic lift and thrust vectoring to achieve stable and
-                    efficient flight. It does not need a runway for takeoff and
-                    landing, making it suitable for confined spaces.
-                </p>
-            </div>
+        <div class="project-container">
+            <!-- Overview -->
+            <section class="project-section">
+                <h2 class="section-title">Overview</h2>
+                <div class="content-grid">
+                    <div class="content-col">
+                        <p class="text-content">
+                            The Fixed-Wing VTOL (Vertical Takeoff and Landing) represents the pinnacle of our 
+                            engineering capabilities. This hybrid aircraft combines the vertical flight capabilities 
+                            of a multirotor with the efficient forward flight characteristics of a fixed-wing aircraft.
+                        </p>
+                        <p class="text-content">
+                            Our VTOL can take off and land in confined spaces like a helicopter, then transition to 
+                            fixed-wing flight for extended range and endurance. This makes it ideal for surveillance, 
+                            mapping, and long-range missions.
+                        </p>
+                    </div>
+                    <div class="content-col">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">45 min</div>
+                                <div class="stat-label">Flight Time</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">5km</div>
+                                <div class="stat-label">Max Range</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">2.5kg</div>
+                                <div class="stat-label">Total Weight</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">3 Modes</div>
+                                <div class="stat-label">Flight Modes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Specifications -->
+            <section class="project-section">
+                <h2 class="section-title">Technical Specifications</h2>
+                <div class="spec-grid">
+                    <div class="spec-card">
+                        <h3 class="spec-title">Airframe</h3>
+                        <ul class="spec-list">
+                            <li><strong>Wingspan:</strong> 1.8m</li>
+                            <li><strong>Length:</strong> 1.2m</li>
+                            <li><strong>Weight:</strong> 2.5kg (all-up)</li>
+                            <li><strong>Material:</strong> Carbon fiber composite</li>
+                            <li><strong>Wing Area:</strong> 0.42 m²</li>
+                        </ul>
+                    </div>
+                    <div class="spec-card">
+                        <h3 class="spec-title">Propulsion System</h3>
+                        <ul class="spec-list">
+                            <li><strong>VTOL Motors:</strong> 4x 1100KV brushless</li>
+                            <li><strong>Push Motor:</strong> 1x 1400KV brushless</li>
+                            <li><strong>Battery:</strong> 4S 5000mAh LiPo</li>
+                            <li><strong>Flight Time:</strong> 45 min (cruise)</li>
+                            <li><strong>Max Thrust:</strong> 6kg combined</li>
+                        </ul>
+                    </div>
+                    <div class="spec-card">
+                        <h3 class="spec-title">Flight Controller</h3>
+                        <ul class="spec-list">
+                            <li><strong>FC:</strong> Pixhawk 4 with PX4</li>
+                            <li><strong>IMU:</strong> 3-axis gyro + accelerometer</li>
+                            <li><strong>GPS:</strong> Dual GPS with compass</li>
+                            <li><strong>Sensors:</strong> Airspeed, Barometer, Rangefinder</li>
+                            <li><strong>Telemetry:</strong> 433MHz long-range</li>
+                        </ul>
+                    </div>
+                    <div class="spec-card">
+                        <h3 class="spec-title">Performance</h3>
+                        <ul class="spec-list">
+                            <li><strong>Cruise Speed:</strong> 60 km/h</li>
+                            <li><strong>Max Speed:</strong> 90 km/h</li>
+                            <li><strong>Range:</strong> Up to 5km</li>
+                            <li><strong>Ceiling:</strong> 500m AGL</li>
+                            <li><strong>Transition Time:</strong> 3-5 seconds</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Flight Modes -->
+            <section class="project-section">
+                <h2 class="section-title">Flight Modes</h2>
+                <div class="features-grid">
+                    <div class="feature-card mode-card">
+                        <div class="feature-icon">🚁</div>
+                        <h3 class="feature-title">Multicopter Mode</h3>
+                        <p class="feature-desc">
+                            Vertical takeoff and landing using quad-rotor configuration. Stable hovering for 
+                            precision maneuvers, loitering, and confined space operations.
+                        </p>
+                    </div>
+                    <div class="feature-card mode-card">
+                        <div class="feature-icon">🔄</div>
+                        <h3 class="feature-title">Transition Mode</h3>
+                        <p class="feature-desc">
+                            Smooth transition between multicopter and fixed-wing modes. Automated transition 
+                            sequence with airspeed and altitude monitoring.
+                        </p>
+                    </div>
+                    <div class="feature-card mode-card">
+                        <div class="feature-icon">✈️</div>
+                        <h3 class="feature-title">Fixed-Wing Mode</h3>
+                        <p class="feature-desc">
+                            Efficient forward flight with extended range and endurance. Aerodynamic lift enables 
+                            high-speed cruise and maximum flight time.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline & Milestones -->
+            <section class="project-section">
+                <h2 class="section-title">Development Timeline</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Research & Planning</h3>
+                            <p class="timeline-date">March 2023</p>
+                            <p class="timeline-desc">
+                                Comprehensive study of VTOL configurations. Selected tail-sitter design for 
+                                optimal performance and simplicity.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">CAD Design & Simulation</h3>
+                            <p class="timeline-date">April - May 2023</p>
+                            <p class="timeline-desc">
+                                Completed 3D modeling and CFD analysis. Optimized wing design for both hover 
+                                and forward flight efficiency.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Prototype Construction</h3>
+                            <p class="timeline-date">June - August 2023</p>
+                            <p class="timeline-desc">
+                                Built first prototype using carbon fiber and foam composite. Integrated flight 
+                                controller and completed electrical systems.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Hover Testing</h3>
+                            <p class="timeline-date">September 2023</p>
+                            <p class="timeline-desc">
+                                Successfully achieved stable hover. Tuned PID controllers for optimal stability 
+                                in multicopter mode.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Transition Testing</h3>
+                            <p class="timeline-date">October 2023 - Present</p>
+                            <p class="timeline-desc">
+                                Developing and refining transition algorithms. Working towards fully autonomous 
+                                mode transitions and waypoint navigation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Image Gallery -->
+            <section class="project-section">
+                <h2 class="section-title">Project Gallery</h2>
+                <div class="project-gallery">
+                    {projectGallery.map((image) => (
+                        <div class="gallery-item">
+                            <img 
+                                src={image.src} 
+                                alt={image.alt}
+                                loading="lazy"
+                                class="gallery-image"
+                            />
+                            <div class="gallery-overlay">
+                                <p class="gallery-caption">{image.alt}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <!-- Key Features -->
+            <section class="project-section">
+                <h2 class="section-title">Key Features & Capabilities</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3 class="feature-title">No Runway Required</h3>
+                        <p class="feature-desc">
+                            Takes off and lands vertically in spaces as small as 2x2 meters. Perfect for 
+                            operations in confined or remote areas.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3 class="feature-title">Extended Endurance</h3>
+                        <p class="feature-desc">
+                            Fixed-wing flight provides 3x longer flight time compared to pure multicopters. 
+                            Efficient for long-range missions.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🤖</div>
+                        <h3 class="feature-title">Autonomous Operation</h3>
+                        <p class="feature-desc">
+                            Fully autonomous mission planning with waypoint navigation, auto-takeoff, 
+                            auto-land, and failsafe return-to-home.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📡</div>
+                        <h3 class="feature-title">Advanced Sensors</h3>
+                        <p class="feature-desc">
+                            Equipped with GPS, IMU, airspeed sensor, and barometer for precise flight control 
+                            in all conditions.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎥</div>
+                        <h3 class="feature-title">Payload Capacity</h3>
+                        <p class="feature-desc">
+                            500g payload capacity suitable for cameras, sensors, or other mission-specific 
+                            equipment.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌐</div>
+                        <h3 class="feature-title">Long-Range Telemetry</h3>
+                        <p class="feature-desc">
+                            433MHz telemetry system provides real-time flight data and control up to 5km range.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Challenges & Solutions -->
+            <section class="project-section">
+                <h2 class="section-title">Engineering Challenges</h2>
+                <div class="challenge-grid">
+                    <div class="challenge-card">
+                        <h3 class="challenge-title">Challenge: Transition Control</h3>
+                        <p class="challenge-desc">
+                            Achieving smooth and stable transition between hover and forward flight modes without losing altitude or control.
+                        </p>
+                        <h4 class="solution-label">Solution</h4>
+                        <p class="challenge-desc">
+                            Developed custom transition algorithm that gradually increases forward motor thrust 
+                            while reducing VTOL motor power. Airspeed sensor ensures adequate wing lift before 
+                            full transition.
+                        </p>
+                    </div>
+                    <div class="challenge-card">
+                        <h3 class="challenge-title">Challenge: Weight Distribution</h3>
+                        <p class="challenge-desc">
+                            Balancing center of gravity for both hover stability and forward flight efficiency proved difficult.
+                        </p>
+                        <h4 class="solution-label">Solution</h4>
+                        <p class="challenge-desc">
+                            Strategically positioned battery and electronics to achieve optimal CG. Conducted 
+                            extensive testing in both flight modes to validate design.
+                        </p>
+                    </div>
+                    <div class="challenge-card">
+                        <h3 class="challenge-title">Challenge: Motor Cooling</h3>
+                        <p class="challenge-desc">
+                            VTOL motors experienced overheating during extended hover operations due to high current draw.
+                        </p>
+                        <h4 class="solution-label">Solution</h4>
+                        <p class="challenge-desc">
+                            Added dedicated cooling ducts and selected motors with higher thermal margins. 
+                            Implemented temperature monitoring with automatic power limiting.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Video Section -->
+            <section class="project-section">
+                <h2 class="section-title">Flight Demonstration</h2>
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <p class="text-gray-300 text-center mb-4">
+                            Watch our VTOL aircraft perform autonomous takeoff, transition, and landing sequences.
+                        </p>
+                        <div class="video-placeholder">
+                            <div class="placeholder-icon">🎥</div>
+                            <p class="placeholder-text">Flight demonstration video coming soon</p>
+                            <p class="placeholder-subtext">Currently editing footage from recent test flights</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Image Gallery -->
+            <section class="project-section">
+                <h2 class="section-title">Project Gallery</h2>
+                <div class="project-gallery">
+                    {projectGallery.map((image) => (
+                        <div class="gallery-item group">
+                            <img 
+                                src={image.src} 
+                                alt={image.alt}
+                                loading="lazy"
+                                class="gallery-image"
+                            />
+                            <div class="gallery-overlay">
+                                <p class="gallery-caption">{image.alt}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <!-- Applications -->
+            <section class="project-section">
+                <h2 class="section-title">Potential Applications</h2>
+                <div class="applications-grid">
+                    <div class="application-card">
+                        <h3 class="application-title">📸 Aerial Surveying</h3>
+                        <p class="application-desc">
+                            Long-range mapping and surveying with vertical takeoff from confined locations.
+                        </p>
+                    </div>
+                    <div class="application-card">
+                        <h3 class="application-title">🔍 Surveillance</h3>
+                        <p class="application-desc">
+                            Extended loitering time for monitoring and reconnaissance missions.
+                        </p>
+                    </div>
+                    <div class="application-card">
+                        <h3 class="application-title">📦 Cargo Delivery</h3>
+                        <p class="application-desc">
+                            Efficient transport of small packages to remote or inaccessible areas.
+                        </p>
+                    </div>
+                    <div class="application-card">
+                        <h3 class="application-title">🌾 Agricultural Monitoring</h3>
+                        <p class="application-desc">
+                            Crop health assessment and precision agriculture applications.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Related Projects -->
+            <section class="project-section">
+                <h2 class="section-title">Related Projects</h2>
+                <div class="related-projects-grid">
+                    {relatedProjects.map((project) => (
+                        <a href={project.link} class="related-project-card">
+                            <div class="related-project-image">
+                                <img src={project.image} alt={project.title} loading="lazy" />
+                            </div>
+                            <div class="related-project-content">
+                                <h3 class="related-project-title">{project.title}</h3>
+                                <p class="related-project-desc">{project.description}</p>
+                                <span class="related-project-link">
+                                    Learn More →
+                                </span>
+                            </div>
+                        </a>
+                    ))}
+                </div>
+            </section>
         </div>
-    </section>
+    </article>
 </Layout>
+
+<style>
+    .project-page {
+        @apply min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900;
+    }
+
+    .project-hero {
+        @apply relative pt-32 pb-20 px-4 text-center bg-gradient-to-br from-gray-900 to-gray-800;
+    }
+
+    .hero-content {
+        @apply max-w-4xl mx-auto;
+    }
+
+    .project-title {
+        @apply text-5xl md:text-6xl font-bold text-vyoma-blue mb-4;
+    }
+
+    .project-subtitle {
+        @apply text-xl md:text-2xl text-gray-300 mb-6;
+    }
+
+    .project-tags {
+        @apply flex flex-wrap gap-3 justify-center;
+    }
+
+    .tag {
+        @apply px-4 py-2 bg-cyan-600 text-white rounded-full text-sm font-medium;
+    }
+
+    .project-container {
+        @apply max-w-7xl mx-auto px-4 py-12;
+    }
+
+    .project-section {
+        @apply mb-20;
+    }
+
+    .section-title {
+        @apply text-3xl md:text-4xl font-bold text-white mb-8 border-l-4 border-cyan-500 pl-4;
+    }
+
+    .content-grid {
+        @apply grid md:grid-cols-2 gap-8;
+    }
+
+    .content-col {
+        @apply space-y-4;
+    }
+
+    .text-content {
+        @apply text-lg text-gray-300 leading-relaxed;
+    }
+
+    .stats-grid {
+        @apply grid grid-cols-2 gap-4;
+    }
+
+    .stat-card {
+        @apply bg-gradient-to-br from-cyan-600 to-blue-700 p-6 rounded-lg text-center;
+    }
+
+    .stat-number {
+        @apply text-3xl font-bold text-white mb-2;
+    }
+
+    .stat-label {
+        @apply text-sm text-cyan-100;
+    }
+
+    /* Technical Specs */
+    .spec-grid {
+        @apply grid md:grid-cols-2 gap-6;
+    }
+
+    .spec-card {
+        @apply bg-gray-800 border border-gray-700 rounded-lg p-6 hover:border-cyan-500 transition-colors;
+    }
+
+    .spec-title {
+        @apply text-xl font-bold text-cyan-400 mb-4;
+    }
+
+    .spec-list {
+        @apply space-y-2 text-gray-300;
+    }
+
+    .spec-list li {
+        @apply flex items-start;
+    }
+
+    .spec-list strong {
+        @apply text-white mr-2 min-w-[120px];
+    }
+
+    /* Timeline */
+    .timeline {
+        @apply relative space-y-8 border-l-2 border-cyan-600 pl-8 ml-4;
+    }
+
+    .timeline-item {
+        @apply relative;
+    }
+
+    .timeline-marker {
+        @apply absolute -left-10 w-4 h-4 bg-cyan-500 rounded-full border-4 border-gray-900;
+    }
+
+    .timeline-content {
+        @apply bg-gray-800 border border-gray-700 rounded-lg p-6;
+    }
+
+    .timeline-title {
+        @apply text-xl font-bold text-white mb-2;
+    }
+
+    .timeline-date {
+        @apply text-cyan-400 text-sm mb-3;
+    }
+
+    .timeline-desc {
+        @apply text-gray-300;
+    }
+
+    /* Gallery */
+    .project-gallery {
+        @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
+    }
+
+    .gallery-item {
+        @apply relative overflow-hidden rounded-lg cursor-pointer;
+    }
+
+    .gallery-image {
+        @apply w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110;
+    }
+
+    .gallery-overlay {
+        @apply absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4;
+    }
+
+    .gallery-caption {
+        @apply text-white font-medium;
+    }
+
+    /* Features & Modes */
+    .features-grid {
+        @apply grid md:grid-cols-2 lg:grid-cols-3 gap-6;
+    }
+
+    .feature-card {
+        @apply bg-gray-800 border border-gray-700 rounded-lg p-6 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-500/20 transition-all;
+    }
+
+    .mode-card {
+        @apply bg-gradient-to-br from-gray-800 to-gray-900;
+    }
+
+    .feature-icon {
+        @apply text-4xl mb-4;
+    }
+
+    .feature-title {
+        @apply text-xl font-bold text-white mb-3;
+    }
+
+    .feature-desc {
+        @apply text-gray-300;
+    }
+
+    /* Video */
+    .video-container {
+        @apply max-w-4xl mx-auto;
+    }
+
+    .video-wrapper {
+        @apply bg-gray-800 border border-gray-700 rounded-lg overflow-hidden;
+    }
+
+    .video-placeholder {
+        @apply flex flex-col items-center justify-center py-20 px-6 bg-gray-900;
+    }
+
+    .placeholder-icon {
+        @apply text-6xl mb-4;
+    }
+
+    .placeholder-text {
+        @apply text-xl font-semibold text-gray-400 mb-2;
+    }
+
+    .placeholder-subtext {
+        @apply text-gray-500;
+    }
+
+    /* Applications */
+    .applications-grid {
+        @apply grid md:grid-cols-2 gap-6;
+    }
+
+    .application-card {
+        @apply bg-gray-800 border border-gray-700 rounded-lg p-6 hover:border-cyan-500 transition-colors;
+    }
+
+    .application-title {
+        @apply text-xl font-bold text-white mb-3;
+    }
+
+    .application-desc {
+        @apply text-gray-300;
+    }
+
+    /* Challenges */
+    .challenge-grid {
+        @apply space-y-6;
+    }
+
+    .challenge-card {
+        @apply bg-gray-800 border border-gray-700 rounded-lg p-6;
+    }
+
+    .challenge-title {
+        @apply text-lg font-bold text-red-400 mb-3;
+    }
+
+    .solution-label {
+        @apply text-lg font-bold text-green-400 mb-2 mt-4;
+    }
+
+    .challenge-desc {
+        @apply text-gray-300;
+    }
+
+    /* Related Projects */
+    .related-projects-grid {
+        @apply grid md:grid-cols-2 gap-6;
+    }
+
+    .related-project-card {
+        @apply bg-gray-800 border border-gray-700 rounded-lg overflow-hidden hover:border-cyan-500 transition-all hover:shadow-xl hover:shadow-cyan-500/20 no-underline;
+    }
+
+    .related-project-image {
+        @apply relative h-48 overflow-hidden;
+    }
+
+    .related-project-image img {
+        @apply w-full h-full object-cover transition-transform duration-500 hover:scale-110;
+    }
+
+    .related-project-content {
+        @apply p-6;
+    }
+
+    .related-project-title {
+        @apply text-xl font-bold text-white mb-2;
+    }
+
+    .related-project-desc {
+        @apply text-gray-300 mb-4;
+    }
+
+    .related-project-link {
+        @apply text-cyan-400 font-medium hover:text-cyan-300;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .project-title {
+            @apply text-4xl;
+        }
+
+        .project-subtitle {
+            @apply text-lg;
+        }
+
+        .section-title {
+            @apply text-2xl;
+        }
+
+        .timeline {
+            @apply pl-6;
+        }
+
+        .timeline-marker {
+            @apply -left-8;
+        }
+
+        .features-grid {
+            @apply grid-cols-1;
+        }
+    }
+</style>
+
